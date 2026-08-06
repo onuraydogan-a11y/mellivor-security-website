@@ -4,6 +4,9 @@ import { cn } from "@/lib/cn";
 import { Container } from "@/components/ui/Container";
 import type { NavItem } from "@/lib/navigation";
 
+const FOCUS_RING =
+  "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background";
+
 type NavMenuProps = {
   item: NavItem;
   isOpen: boolean;
@@ -16,7 +19,10 @@ export function NavMenu({ item, isOpen, onToggle, onClose }: NavMenuProps) {
     return (
       <Link
         href={item.href}
-        className="text-sm font-medium text-muted-foreground transition-colors hover:text-foreground"
+        className={cn(
+          "whitespace-nowrap rounded-sm text-sm font-medium text-muted-foreground transition-colors hover:text-foreground",
+          FOCUS_RING
+        )}
       >
         {item.label}
       </Link>
@@ -30,8 +36,9 @@ export function NavMenu({ item, isOpen, onToggle, onClose }: NavMenuProps) {
         onClick={onToggle}
         aria-expanded={isOpen}
         className={cn(
-          "flex items-center gap-1 text-sm font-medium transition-colors hover:text-foreground",
-          isOpen ? "text-foreground" : "text-muted-foreground"
+          "flex items-center gap-1 whitespace-nowrap rounded-sm text-sm font-medium transition-colors hover:text-foreground",
+          isOpen ? "text-foreground" : "text-muted-foreground",
+          FOCUS_RING
         )}
       >
         {item.label}
@@ -67,7 +74,11 @@ export function NavMenu({ item, isOpen, onToggle, onClose }: NavMenuProps) {
                 <ul className={cn("space-y-3", column.heading && "mt-3")}>
                   {column.links.map((link) => (
                     <li key={link.href}>
-                      <Link href={link.href} onClick={onClose} className="group block">
+                      <Link
+                        href={link.href}
+                        onClick={onClose}
+                        className={cn("group block rounded-sm", FOCUS_RING)}
+                      >
                         <span className="text-sm font-medium text-foreground transition-colors group-hover:text-primary">
                           {link.label}
                         </span>
@@ -87,7 +98,10 @@ export function NavMenu({ item, isOpen, onToggle, onClose }: NavMenuProps) {
           <Link
             href={item.href}
             onClick={onClose}
-            className="mt-8 inline-flex items-center gap-1 text-sm font-semibold text-primary hover:text-primary-hover"
+            className={cn(
+              "mt-8 inline-flex items-center gap-1 rounded-sm text-sm font-semibold text-primary hover:text-primary-hover",
+              FOCUS_RING
+            )}
           >
             Explore {item.label}
             <ArrowRight aria-hidden className="h-4 w-4" />

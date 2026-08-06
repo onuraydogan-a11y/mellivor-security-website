@@ -7,8 +7,8 @@ import { Reveal } from "@/components/ui/Reveal";
 
 function DiagramNode({ icon: Icon, label }: { icon: LucideIcon; label: string }) {
   return (
-    <div className="flex flex-col items-center gap-3 rounded-2xl border border-border bg-surface px-6 py-5 text-center">
-      <span className="inline-flex h-10 w-10 items-center justify-center rounded-lg bg-primary/10 text-primary">
+    <div className="relative flex flex-col items-center gap-3 rounded-2xl border border-border bg-surface px-7 py-6 text-center shadow-sm">
+      <span className="inline-flex h-11 w-11 items-center justify-center rounded-xl bg-primary/10 text-primary">
         <Icon aria-hidden className="h-5 w-5" />
       </span>
       <span className="text-sm font-semibold text-foreground">{label}</span>
@@ -19,8 +19,8 @@ function DiagramNode({ icon: Icon, label }: { icon: LucideIcon; label: string })
 function DiagramArrow() {
   return (
     <>
-      <ArrowRight aria-hidden className="hidden h-5 w-5 flex-shrink-0 text-border sm:block" />
-      <ArrowDown aria-hidden className="h-5 w-5 flex-shrink-0 text-border sm:hidden" />
+      <ArrowRight aria-hidden className="hidden h-5 w-5 flex-shrink-0 text-primary/40 sm:block" />
+      <ArrowDown aria-hidden className="h-5 w-5 flex-shrink-0 text-primary/40 sm:hidden" />
     </>
   );
 }
@@ -38,12 +38,23 @@ export function Overview() {
         </Reveal>
 
         <Reveal delay={100}>
-          <div className="mt-14 flex flex-col items-center gap-4 sm:flex-row sm:justify-center">
-            <DiagramNode icon={BrainCircuit} label="AI Platform" />
-            <DiagramArrow />
-            <DiagramNode icon={Radar} label="Behind24" />
-            <DiagramArrow />
-            <DiagramNode icon={LayoutGrid} label="Mellivor One" />
+          <div className="relative mt-14">
+            <div
+              aria-hidden
+              className="pointer-events-none absolute inset-0 -z-10 opacity-70"
+              style={{
+                backgroundImage:
+                  "radial-gradient(50% 60% at 50% 50%, var(--color-primary) 0%, transparent 70%)",
+                opacity: 0.06,
+              }}
+            />
+            <div className="flex flex-col items-center gap-4 sm:flex-row sm:justify-center">
+              <DiagramNode icon={BrainCircuit} label="AI Platform" />
+              <DiagramArrow />
+              <DiagramNode icon={Radar} label="Behind24" />
+              <DiagramArrow />
+              <DiagramNode icon={LayoutGrid} label="Mellivor One" />
+            </div>
           </div>
           <p className="mt-6 text-center text-sm text-muted-foreground">
             The AI Platform prioritizes signal for Behind24 to act on, and Behind24&apos;s findings

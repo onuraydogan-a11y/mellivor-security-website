@@ -33,7 +33,7 @@ export default function LeadershipPage() {
               {LEADERSHIP_ROLES.map((role) => (
                 <div
                   key={role}
-                  className="flex flex-col items-center rounded-2xl border border-dashed border-border bg-surface p-6 text-center"
+                  className="flex flex-col items-center rounded-2xl border border-dashed border-border bg-muted/30 p-6 text-center"
                 >
                   <span className="flex h-14 w-14 items-center justify-center rounded-full bg-muted text-sm font-semibold text-muted-foreground">
                     {role

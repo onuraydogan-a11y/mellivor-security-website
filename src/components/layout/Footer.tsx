@@ -18,10 +18,10 @@ export function Footer() {
           </p>
         </div>
 
-        <div className="mt-12 grid grid-cols-2 gap-8 sm:grid-cols-3 lg:grid-cols-6">
+        <div className="mt-14 grid grid-cols-2 gap-x-8 gap-y-10 sm:grid-cols-3 lg:grid-cols-6">
           {footerNav.map((column) => (
             <div key={column.title}>
-              <h3 className="text-sm font-semibold text-foreground">
+              <h3 className="text-xs font-semibold uppercase tracking-wide text-muted-foreground">
                 {column.title}
               </h3>
               <ul className="mt-4 space-y-3">
@@ -29,7 +29,7 @@ export function Footer() {
                   <li key={link.href}>
                     <Link
                       href={link.href}
-                      className="text-sm text-muted-foreground transition-colors hover:text-foreground"
+                      className="rounded-sm text-sm text-foreground/80 transition-colors hover:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background"
                     >
                       {link.label}
                     </Link>
@@ -40,7 +40,7 @@ export function Footer() {
           ))}
         </div>
 
-        <div className="mt-12 flex flex-col-reverse items-center gap-4 border-t border-border pt-8 sm:flex-row sm:justify-between">
+        <div className="mt-14 flex flex-col-reverse items-center gap-4 border-t border-border pt-8 sm:flex-row sm:justify-between">
           <p className="text-sm text-muted-foreground">
             &copy; {year} Mellivor Security. All rights reserved.
           </p>

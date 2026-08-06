@@ -26,8 +26,9 @@ export function Card({ icon: Icon, title, description, href, className }: CardPr
   );
 
   const classes = cn(
-    "rounded-2xl border border-border bg-surface p-6 transition-all",
-    href && "hover:-translate-y-0.5 hover:border-primary/40 hover:shadow-md",
+    "rounded-2xl border border-border bg-surface p-7 shadow-sm transition-all duration-200",
+    href &&
+      "hover:-translate-y-0.5 hover:border-primary/40 hover:shadow-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background",
     className
   );
 

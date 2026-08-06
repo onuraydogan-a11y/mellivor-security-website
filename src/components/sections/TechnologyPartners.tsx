@@ -30,7 +30,7 @@ export function TechnologyPartners() {
             ))}
           </div>
 
-          <div className="mt-10 flex flex-col items-center gap-4 rounded-2xl border border-border bg-surface px-6 py-8 text-center sm:flex-row sm:justify-between sm:text-left">
+          <div className="mt-10 flex flex-col items-center gap-4 rounded-2xl border border-border bg-surface px-6 py-8 text-center shadow-sm sm:flex-row sm:justify-between sm:text-left">
             <p className="text-sm text-muted-foreground">
               Don&apos;t see your technology? The Mellivor ecosystem is built to
               keep adding vendors.

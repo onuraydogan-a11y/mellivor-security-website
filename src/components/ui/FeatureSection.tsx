@@ -49,7 +49,7 @@ export function FeatureSection({
 
             <div
               className={cn(
-                "rounded-2xl border border-border bg-surface p-8",
+                "rounded-2xl border border-border bg-surface p-8 shadow-sm",
                 reverse ? "lg:order-1" : "lg:order-2"
               )}
             >

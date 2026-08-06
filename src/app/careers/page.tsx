@@ -1,10 +1,11 @@
-import { Briefcase, Users, Handshake } from "lucide-react";
+import { Briefcase, Users, Handshake, Search } from "lucide-react";
 import { PageHero } from "@/components/ui/PageHero";
 import { Section } from "@/components/ui/Section";
 import { Container } from "@/components/ui/Container";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 import { BulletList } from "@/components/ui/BulletList";
 import { RelatedContent } from "@/components/ui/RelatedContent";
+import { EmptyState } from "@/components/ui/EmptyState";
 import { Reveal } from "@/components/ui/Reveal";
 import { FinalCta } from "@/components/sections/FinalCta";
 
@@ -37,12 +38,15 @@ export default function CareersPage() {
 
       <Section className="bg-muted/40">
         <Container>
-          <Reveal className="flex flex-col items-center text-center">
-            <SectionHeading
-              eyebrow="Open Positions"
-              title="No open roles listed right now"
-              description="Check back soon, or send your resume and we'll reach out when something fits."
-            />
+          <Reveal>
+            <SectionHeading eyebrow="Open Positions" title="Current openings" />
+            <div className="mt-14">
+              <EmptyState
+                icon={Search}
+                title="No open roles listed right now"
+                description="Check back soon, or send your resume and we'll reach out when something fits."
+              />
+            </div>
           </Reveal>
         </Container>
       </Section>

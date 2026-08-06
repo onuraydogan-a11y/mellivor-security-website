@@ -43,9 +43,12 @@ export function Reveal({ children, className, delay = 0 }: RevealProps) {
   return (
     <div
       ref={ref}
-      style={{ transitionDelay: isVisible ? `${delay}ms` : "0ms" }}
+      style={{
+        transitionDelay: isVisible ? `${delay}ms` : "0ms",
+        transitionTimingFunction: "cubic-bezier(0.16, 1, 0.3, 1)",
+      }}
       className={cn(
-        "transition-all duration-700 ease-out",
+        "transition-all duration-500",
         isVisible ? "translate-y-0 opacity-100" : "translate-y-4 opacity-0",
         className
       )}

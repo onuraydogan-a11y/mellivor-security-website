@@ -3,7 +3,7 @@ import { Section } from "@/components/ui/Section";
 import { Container } from "@/components/ui/Container";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 import { Card } from "@/components/ui/Card";
-import { Button } from "@/components/ui/Button";
+import { EmptyState } from "@/components/ui/EmptyState";
 import { Reveal } from "@/components/ui/Reveal";
 import { technologyCategories } from "@/lib/technology-partners";
 
@@ -38,18 +38,13 @@ export function FeaturedVendors() {
               ))}
             </div>
           ) : (
-            <div className="mt-14 flex flex-col items-center gap-4 rounded-2xl border border-dashed border-border bg-surface px-6 py-16 text-center">
-              <span className="inline-flex h-12 w-12 items-center justify-center rounded-xl bg-primary/10 text-primary">
-                <Handshake aria-hidden className="h-6 w-6" />
-              </span>
-              <p className="max-w-md text-sm leading-6 text-muted-foreground">
-                Featured technology partners will appear here as partnerships are confirmed.
-                In the meantime, browse the technology categories above or reach out if
-                you&apos;d like to bring your technology into the Mellivor ecosystem.
-              </p>
-              <Button href="/technology-partners/become-a-partner" variant="outline" size="md">
-                Become a Partner
-              </Button>
+            <div className="mt-14">
+              <EmptyState
+                icon={Handshake}
+                title="No featured partners yet"
+                description="Featured technology partners will appear here as partnerships are confirmed. In the meantime, browse the technology categories above or reach out if you'd like to bring your technology into the Mellivor ecosystem."
+                action={{ label: "Become a Partner", href: "/technology-partners/become-a-partner" }}
+              />
             </div>
           )}
         </Reveal>

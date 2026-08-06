@@ -36,6 +36,18 @@ export function PageHero({
     <section className={cn("relative overflow-hidden", className)}>
       <div
         aria-hidden
+        className="pointer-events-none absolute inset-0 -z-20"
+        style={{
+          backgroundImage:
+            "radial-gradient(circle at 1px 1px, var(--color-border) 1px, transparent 0)",
+          backgroundSize: "32px 32px",
+          opacity: 0.5,
+          maskImage: "radial-gradient(55% 55% at 50% 15%, black, transparent)",
+          WebkitMaskImage: "radial-gradient(55% 55% at 50% 15%, black, transparent)",
+        }}
+      />
+      <div
+        aria-hidden
         className="pointer-events-none absolute inset-0 -z-10"
         style={{
           backgroundImage:

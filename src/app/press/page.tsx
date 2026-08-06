@@ -4,6 +4,7 @@ import { Section } from "@/components/ui/Section";
 import { Container } from "@/components/ui/Container";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 import { RelatedContent } from "@/components/ui/RelatedContent";
+import { EmptyState } from "@/components/ui/EmptyState";
 import { Reveal } from "@/components/ui/Reveal";
 import { FinalCta } from "@/components/sections/FinalCta";
 
@@ -18,12 +19,15 @@ export default function PressPage() {
 
       <Section>
         <Container>
-          <Reveal className="flex flex-col items-center text-center">
-            <SectionHeading
-              eyebrow="Coverage"
-              title="Press coverage will appear here"
-              description="Mellivor doesn't have press coverage to feature yet. Check back as announcements are published."
-            />
+          <Reveal>
+            <SectionHeading eyebrow="Coverage" title="Press mentions" />
+            <div className="mt-14">
+              <EmptyState
+                icon={Newspaper}
+                title="Press coverage will appear here"
+                description="Mellivor doesn't have press coverage to feature yet. Check back as announcements are published."
+              />
+            </div>
           </Reveal>
         </Container>
       </Section>

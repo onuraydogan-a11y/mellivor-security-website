@@ -38,7 +38,7 @@ export function ServiceGroup({
               const capabilities = SERVICE_CAPABILITIES[link.label];
 
               return (
-                <div key={link.href} className="rounded-2xl border border-border bg-surface p-6">
+                <div key={link.href} className="rounded-2xl border border-border bg-surface p-7 shadow-sm">
                   {Icon && (
                     <span className="inline-flex h-10 w-10 items-center justify-center rounded-lg bg-primary/10 text-primary">
                       <Icon aria-hidden className="h-5 w-5" />

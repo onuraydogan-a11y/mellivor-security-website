@@ -6,7 +6,7 @@ export function Logo({ className }: { className?: string }) {
     <Link
       href="/"
       className={cn(
-        "flex items-center gap-2 text-lg font-semibold tracking-tight text-foreground",
+        "flex flex-shrink-0 items-center gap-2 whitespace-nowrap text-lg font-semibold tracking-tight text-foreground",
         className
       )}
     >
