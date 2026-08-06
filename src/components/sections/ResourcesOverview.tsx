@@ -5,6 +5,7 @@ import { Container } from "@/components/ui/Container";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 import { Card } from "@/components/ui/Card";
 import { Button } from "@/components/ui/Button";
+import { Reveal } from "@/components/ui/Reveal";
 import { mainNav } from "@/lib/navigation";
 
 const FEATURED_LABELS = ["Blog", "Research", "Whitepapers", "Case Studies"];
@@ -26,27 +27,31 @@ export function ResourcesOverview() {
   return (
     <Section>
       <Container>
-        <SectionHeading
-          eyebrow="Resources"
-          title="Research, guidance, and proof it works"
-        />
+        <Reveal>
+          <SectionHeading
+            eyebrow="Resources"
+            title="Research, guidance, and proof it works"
+          />
+        </Reveal>
 
-        <div className="mt-14 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
-          {featured.map((link) => (
-            <Card
-              key={link.href}
-              icon={RESOURCE_ICONS[link.label]}
-              title={link.label}
-              href={link.href}
-            />
-          ))}
-        </div>
+        <Reveal delay={100}>
+          <div className="mt-14 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+            {featured.map((link) => (
+              <Card
+                key={link.href}
+                icon={RESOURCE_ICONS[link.label]}
+                title={link.label}
+                href={link.href}
+              />
+            ))}
+          </div>
 
-        <div className="mt-10 flex justify-center">
-          <Button href="/resources" variant="outline" size="md">
-            View all resources
-          </Button>
-        </div>
+          <div className="mt-10 flex justify-center">
+            <Button href="/resources" variant="outline" size="md">
+              View all resources
+            </Button>
+          </div>
+        </Reveal>
       </Container>
     </Section>
   );

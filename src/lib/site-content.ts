@@ -1,47 +1,62 @@
 import type { LucideIcon } from "lucide-react";
 import {
-  Layers,
   BrainCircuit,
-  Server,
-  Users,
-  Landmark,
-  HeartPulse,
   Building2,
+  Network,
+  Boxes,
+  Users,
+  Globe,
+  Landmark,
+  Umbrella,
+  Factory,
+  HeartPulse,
   ShoppingCart,
   Zap,
-  Cpu,
+  Radio,
 } from "lucide-react";
 
-export type ValueProp = {
+export type ValuePillar = {
   icon: LucideIcon;
   title: string;
   description: string;
 };
 
-export const valueProps: ValueProp[] = [
-  {
-    icon: Layers,
-    title: "One platform, not a pile of tools",
-    description:
-      "Mellivor One unifies detection, response, and risk data instead of asking your team to stitch together another console.",
-  },
+export const valuePillars: ValuePillar[] = [
   {
     icon: BrainCircuit,
-    title: "Intelligence-led, not alert-led",
+    title: "AI Native",
     description:
-      "Behind24 and the Mellivor AI Platform prioritize what actually matters, so analysts spend time on real risk, not noise.",
+      "The Mellivor AI Platform sits at the core of every product, not bolted on as an afterthought.",
   },
   {
-    icon: Server,
-    title: "Built for how enterprises actually deploy",
+    icon: Building2,
+    title: "Enterprise Ready",
     description:
-      "Cloud, on-premises, or hybrid — Mellivor's deployment models fit your architecture, not the other way around.",
+      "Built to deploy across cloud, on-premises, and hybrid environments at enterprise scale and reliability.",
+  },
+  {
+    icon: Network,
+    title: "Vendor Neutral",
+    description:
+      "Integrates the technologies you already run instead of forcing a single-vendor stack.",
+  },
+  {
+    icon: Boxes,
+    title: "Technology Ecosystem",
+    description:
+      "A growing portfolio of technology partners extends the platform without locking you in.",
   },
   {
     icon: Users,
-    title: "Backed by people, not just software",
+    title: "Professional Services",
     description:
-      "Professional and managed services teams sit behind the platform for the moments that need a human.",
+      "Expert teams design, deploy, and operate the platform alongside your own.",
+  },
+  {
+    icon: Globe,
+    title: "Global Partnerships",
+    description:
+      "A partner network that extends Mellivor's reach, delivery, and support worldwide.",
   },
 ];
 
@@ -52,9 +67,11 @@ export type Industry = {
 
 export const industries: Industry[] = [
   { icon: Landmark, name: "Financial Services" },
-  { icon: HeartPulse, name: "Healthcare & Life Sciences" },
-  { icon: Building2, name: "Government & Public Sector" },
-  { icon: ShoppingCart, name: "Retail & E-commerce" },
-  { icon: Zap, name: "Energy & Utilities" },
-  { icon: Cpu, name: "Technology & SaaS" },
+  { icon: Umbrella, name: "Insurance" },
+  { icon: Building2, name: "Government" },
+  { icon: Factory, name: "Manufacturing" },
+  { icon: HeartPulse, name: "Healthcare" },
+  { icon: ShoppingCart, name: "Retail" },
+  { icon: Zap, name: "Energy" },
+  { icon: Radio, name: "Telecommunications" },
 ];

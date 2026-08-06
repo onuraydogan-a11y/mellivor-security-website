@@ -14,9 +14,9 @@ export function Hero() {
         }}
       />
 
-      <Container className="flex flex-col items-center py-28 text-center sm:py-36">
+      <Container className="flex flex-col items-center py-28 text-center sm:py-36 animate-fade-in-up">
         <span className="inline-flex items-center rounded-full bg-primary/10 px-3 py-1 text-sm font-medium text-primary">
-          Trusted by security-conscious enterprises
+          Platform · Solutions · Services
         </span>
 
         <h1 className="mt-6 max-w-3xl text-4xl font-semibold tracking-tight text-foreground sm:text-6xl">

@@ -19,8 +19,8 @@ export type NavItem = {
 /**
  * Single source of truth for the site IA. Consumed by the header
  * (mega menus + mobile accordion) and by homepage teaser sections
- * (Platform/Solutions/Services/Resources), so the nav taxonomy and
- * the homepage content can't silently drift apart.
+ * (Platform/Solutions/Services/Resources/Technology Partners), so the
+ * nav taxonomy and the homepage content can't silently drift apart.
  */
 export const mainNav: NavItem[] = [
   {
@@ -49,9 +49,9 @@ export const mainNav: NavItem[] = [
         ],
       },
       {
-        heading: "Platform",
+        heading: "Platform Essentials",
         links: [
-          { label: "Platform Architecture", href: "/platform/architecture" },
+          { label: "Platform Overview", href: "/platform/overview" },
           { label: "Integrations", href: "/platform/integrations" },
           { label: "Deployment Models", href: "/platform/deployment-models" },
         ],
@@ -120,7 +120,43 @@ export const mainNav: NavItem[] = [
   {
     label: "Technology Partners",
     href: "/technology-partners",
-    description: "Vendor technologies Mellivor distributes, integrates, and supports.",
+    description: "The vendor technologies Mellivor distributes, integrates, and supports.",
+    columns: [
+      {
+        heading: "Technology Portfolio",
+        links: [
+          { label: "Cloud & Infrastructure", href: "/technology-partners/cloud-infrastructure" },
+          { label: "Identity & Access", href: "/technology-partners/identity-access" },
+          { label: "Detection & Response", href: "/technology-partners/detection-response" },
+          { label: "Network & Perimeter", href: "/technology-partners/network-perimeter" },
+        ],
+      },
+      {
+        heading: "Ecosystem",
+        links: [
+          {
+            label: "Partner Vendors",
+            href: "/technology-partners/vendors",
+            description: "Browse every technology in the Mellivor ecosystem.",
+          },
+          {
+            label: "Integration Ecosystem",
+            href: "/technology-partners/integrations",
+            description: "How Mellivor connects to the tools you already run.",
+          },
+          {
+            label: "Featured Technologies",
+            href: "/technology-partners/featured",
+            description: "Highlighted technologies across the portfolio.",
+          },
+          {
+            label: "Become a Partner",
+            href: "/technology-partners/become-a-partner",
+            description: "Bring your technology into the Mellivor platform.",
+          },
+        ],
+      },
+    ],
   },
   {
     label: "Services",
@@ -190,6 +226,7 @@ export type FooterColumn = {
   links: NavLink[];
 };
 
+/** Mirrors the top nav order so the footer reads as the same sitemap. */
 export const footerNav: FooterColumn[] = [
   {
     title: "Platform",
@@ -197,7 +234,7 @@ export const footerNav: FooterColumn[] = [
       { label: "Mellivor One", href: "/platform/mellivor-one" },
       { label: "Behind24", href: "/platform/behind24" },
       { label: "AI Platform", href: "/platform/ai-platform" },
-      { label: "Technology Partners", href: "/technology-partners" },
+      { label: "Platform Overview", href: "/platform/overview" },
     ],
   },
   {
@@ -208,6 +245,14 @@ export const footerNav: FooterColumn[] = [
       { label: "Identity Security", href: "/solutions/identity-security" },
       { label: "Exposure Management (CTEM)", href: "/solutions/exposure-management" },
       { label: "View all solutions", href: "/solutions" },
+    ],
+  },
+  {
+    title: "Technology Partners",
+    links: [
+      { label: "Cloud & Infrastructure", href: "/technology-partners/cloud-infrastructure" },
+      { label: "Identity & Access", href: "/technology-partners/identity-access" },
+      { label: "Become a Partner", href: "/technology-partners/become-a-partner" },
     ],
   },
   {

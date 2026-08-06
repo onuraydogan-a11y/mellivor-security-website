@@ -9,16 +9,16 @@ export function Footer() {
   return (
     <footer className="border-t border-border bg-surface">
       <Container className="py-16 sm:py-20">
-        <div className="grid grid-cols-2 gap-10 sm:grid-cols-3 lg:grid-cols-6">
-          <div className="col-span-2">
-            <Logo />
-            <p className="mt-4 max-w-xs text-sm leading-6 text-muted-foreground">
-              Mellivor Security helps enterprises detect, respond to, and get
-              ahead of the risks that matter — through a unified platform and
-              the people behind it.
-            </p>
-          </div>
+        <div className="max-w-sm">
+          <Logo />
+          <p className="mt-4 text-sm leading-6 text-muted-foreground">
+            Mellivor Security helps enterprises detect, respond to, and get
+            ahead of the risks that matter — through a proprietary platform,
+            a technology ecosystem, and the people behind both.
+          </p>
+        </div>
 
+        <div className="mt-12 grid grid-cols-2 gap-8 sm:grid-cols-3 lg:grid-cols-6">
           {footerNav.map((column) => (
             <div key={column.title}>
               <h3 className="text-sm font-semibold text-foreground">
