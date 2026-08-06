@@ -9,12 +9,13 @@ export function Footer() {
   return (
     <footer className="border-t border-border bg-surface">
       <Container className="py-16 sm:py-20">
-        <div className="grid grid-cols-2 gap-10 sm:grid-cols-4">
+        <div className="grid grid-cols-2 gap-10 sm:grid-cols-3 lg:grid-cols-6">
           <div className="col-span-2">
             <Logo />
             <p className="mt-4 max-w-xs text-sm leading-6 text-muted-foreground">
-              Enterprise security assessments and advisory for organizations
-              that can&apos;t afford to guess.
+              Mellivor Security helps enterprises detect, respond to, and get
+              ahead of the risks that matter — through a unified platform and
+              the people behind it.
             </p>
           </div>
 

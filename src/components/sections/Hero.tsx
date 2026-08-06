@@ -24,16 +24,16 @@ export function Hero() {
         </h1>
 
         <p className="mt-6 max-w-xl text-lg leading-8 text-muted-foreground">
-          Mellivor Security helps engineering and risk teams find what
-          attackers would find first — before they do.
+          Mellivor unifies detection, response, and risk management on one
+          platform — backed by the people who know how to run it.
         </p>
 
         <div className="mt-10 flex flex-col gap-3 sm:flex-row">
-          <Button href="/contact" variant="primary" size="lg">
-            Talk to sales
+          <Button href="/request-demo" variant="primary" size="lg">
+            Request Demo
           </Button>
-          <Button href="/services" variant="outline" size="lg">
-            Explore services
+          <Button href="/platform" variant="outline" size="lg">
+            Explore Platform
           </Button>
         </div>
       </Container>

@@ -1,38 +1,63 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
+import { ChevronDown, Menu, X } from "lucide-react";
 import { Container } from "@/components/ui/Container";
 import { Button } from "@/components/ui/Button";
 import { Logo } from "@/components/ui/Logo";
+import { NavMenu } from "@/components/layout/NavMenu";
+import { cn } from "@/lib/cn";
 import { mainNav } from "@/lib/navigation";
 
 export function Header() {
+  const [openMenu, setOpenMenu] = useState<string | null>(null);
   const [isMobileNavOpen, setIsMobileNavOpen] = useState(false);
+  const [openMobileSection, setOpenMobileSection] = useState<string | null>(null);
+  const navRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    if (!openMenu) return;
+
+    function handleClickOutside(event: MouseEvent) {
+      if (navRef.current && !navRef.current.contains(event.target as Node)) {
+        setOpenMenu(null);
+      }
+    }
+    function handleEscape(event: KeyboardEvent) {
+      if (event.key === "Escape") setOpenMenu(null);
+    }
+
+    document.addEventListener("mousedown", handleClickOutside);
+    document.addEventListener("keydown", handleEscape);
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+      document.removeEventListener("keydown", handleEscape);
+    };
+  }, [openMenu]);
 
   return (
     <header className="sticky top-0 z-50 border-b border-border bg-background/80 backdrop-blur-md">
       <Container className="flex h-16 items-center justify-between sm:h-18">
         <Logo />
 
-        <nav className="hidden items-center gap-8 md:flex">
-          {mainNav.map((link) => (
-            <Link
-              key={link.href}
-              href={link.href}
-              className="text-sm font-medium text-muted-foreground transition-colors hover:text-foreground"
-            >
-              {link.label}
-            </Link>
+        <nav ref={navRef} className="hidden items-center gap-8 md:flex">
+          {mainNav.map((item) => (
+            <NavMenu
+              key={item.label}
+              item={item}
+              isOpen={openMenu === item.label}
+              onToggle={() =>
+                setOpenMenu((current) => (current === item.label ? null : item.label))
+              }
+              onClose={() => setOpenMenu(null)}
+            />
           ))}
         </nav>
 
-        <div className="hidden items-center gap-3 md:flex">
-          <Button href="/contact" variant="ghost" size="sm">
-            Sign in
-          </Button>
-          <Button href="/contact" variant="primary" size="sm">
-            Get started
+        <div className="hidden md:flex">
+          <Button href="/request-demo" variant="primary" size="sm">
+            Request Demo
           </Button>
         </div>
 
@@ -43,42 +68,84 @@ export function Header() {
           aria-label="Toggle navigation menu"
           className="inline-flex h-10 w-10 items-center justify-center rounded-md text-foreground md:hidden"
         >
-          <svg
-            aria-hidden
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            strokeWidth={1.75}
-            className="h-6 w-6"
-          >
-            {isMobileNavOpen ? (
-              <path strokeLinecap="round" strokeLinejoin="round" d="M6 6l12 12M18 6L6 18" />
-            ) : (
-              <path strokeLinecap="round" strokeLinejoin="round" d="M4 7h16M4 12h16M4 17h16" />
-            )}
-          </svg>
+          {isMobileNavOpen ? (
+            <X aria-hidden className="h-6 w-6" />
+          ) : (
+            <Menu aria-hidden className="h-6 w-6" />
+          )}
         </button>
       </Container>
 
       {isMobileNavOpen && (
-        <div className="border-t border-border bg-background md:hidden">
+        <div className="max-h-[calc(100vh-4rem)] overflow-y-auto border-t border-border bg-background md:hidden">
           <Container className="flex flex-col gap-1 py-4">
-            {mainNav.map((link) => (
-              <Link
-                key={link.href}
-                href={link.href}
-                onClick={() => setIsMobileNavOpen(false)}
-                className="rounded-md px-2 py-2.5 text-sm font-medium text-muted-foreground hover:bg-muted hover:text-foreground"
-              >
-                {link.label}
-              </Link>
-            ))}
-            <div className="mt-2 flex flex-col gap-2 px-2">
-              <Button href="/contact" variant="outline" size="md">
-                Sign in
-              </Button>
-              <Button href="/contact" variant="primary" size="md">
-                Get started
+            {mainNav.map((item) => {
+              if (!item.columns) {
+                return (
+                  <Link
+                    key={item.label}
+                    href={item.href}
+                    onClick={() => setIsMobileNavOpen(false)}
+                    className="rounded-md px-2 py-2.5 text-sm font-medium text-muted-foreground hover:bg-muted hover:text-foreground"
+                  >
+                    {item.label}
+                  </Link>
+                );
+              }
+
+              const isSectionOpen = openMobileSection === item.label;
+
+              return (
+                <div key={item.label}>
+                  <button
+                    type="button"
+                    onClick={() =>
+                      setOpenMobileSection((current) =>
+                        current === item.label ? null : item.label
+                      )
+                    }
+                    aria-expanded={isSectionOpen}
+                    className="flex w-full items-center justify-between rounded-md px-2 py-2.5 text-sm font-medium text-muted-foreground hover:bg-muted hover:text-foreground"
+                  >
+                    {item.label}
+                    <ChevronDown
+                      aria-hidden
+                      className={cn("h-4 w-4 transition-transform", isSectionOpen && "rotate-180")}
+                    />
+                  </button>
+
+                  {isSectionOpen && (
+                    <div className="ml-2 flex flex-col gap-4 border-l border-border py-2 pl-4">
+                      {item.columns.map((column, index) => (
+                        <div key={column.heading ?? index}>
+                          {column.heading && (
+                            <p className="text-xs font-semibold uppercase tracking-wide text-muted-foreground">
+                              {column.heading}
+                            </p>
+                          )}
+                          <div className={cn("flex flex-col", column.heading && "mt-2")}>
+                            {column.links.map((link) => (
+                              <Link
+                                key={link.href}
+                                href={link.href}
+                                onClick={() => setIsMobileNavOpen(false)}
+                                className="rounded-md px-2 py-2 text-sm text-muted-foreground hover:bg-muted hover:text-foreground"
+                              >
+                                {link.label}
+                              </Link>
+                            ))}
+                          </div>
+                        </div>
+                      ))}
+                    </div>
+                  )}
+                </div>
+              );
+            })}
+
+            <div className="mt-3 px-2">
+              <Button href="/request-demo" variant="primary" size="md" className="w-full">
+                Request Demo
               </Button>
             </div>
           </Container>
