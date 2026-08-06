@@ -15,10 +15,10 @@ import type { SolutionPageContent } from "@/lib/solutions-content";
 
 /**
  * Shared structure for every solution page: Hero, Overview, Business
- * Challenge, How Mellivor Solves It, Recommended Technologies,
- * Professional Services, Related Resources, Request Demo. A new
- * solution page is a new SolutionPageContent entry plus a route file
- * that renders this component — never a new layout.
+ * Challenge, Why It Matters, How Mellivor Solves It, Recommended
+ * Technologies, Professional Services, Related Resources, Request
+ * Demo. A new solution page is a new SolutionPageContent entry plus a
+ * route file that renders this component — never a new layout.
  */
 export function SolutionTemplate({ content }: { content: SolutionPageContent }) {
   const resources = mainNav.find((item) => item.label === "Resources");
@@ -66,6 +66,21 @@ export function SolutionTemplate({ content }: { content: SolutionPageContent }) 
       <Section>
         <Container>
           <Reveal>
+            <SectionHeading eyebrow="Why It Matters" title="What's actually at stake" align="left" />
+            <div className="mt-6 max-w-3xl space-y-4">
+              {content.whyItMatters.map((paragraph) => (
+                <p key={paragraph} className="text-lg leading-7 text-muted-foreground">
+                  {paragraph}
+                </p>
+              ))}
+            </div>
+          </Reveal>
+        </Container>
+      </Section>
+
+      <Section className="bg-muted/40">
+        <Container>
+          <Reveal>
             <SectionHeading eyebrow="How Mellivor Solves It" title="The Mellivor approach" align="left" />
             <div className="mt-6 max-w-2xl">
               <BulletList items={content.approach} />
@@ -74,7 +89,7 @@ export function SolutionTemplate({ content }: { content: SolutionPageContent }) 
         </Container>
       </Section>
 
-      <Section className="bg-muted/40">
+      <Section>
         <Container>
           <Reveal>
             <SectionHeading

@@ -6,11 +6,15 @@ import { Reveal } from "@/components/ui/Reveal";
 type FinalCtaProps = {
   title?: string;
   description?: string;
+  ctaLabel?: string;
+  ctaHref?: string;
 };
 
 export function FinalCta({
   title = "See Mellivor on your own environment",
   description = "Talk to our team about a demo tailored to your platform, solutions, and deployment model.",
+  ctaLabel = "Request Demo",
+  ctaHref = "/request-demo",
 }: FinalCtaProps) {
   return (
     <Section className="bg-primary">
@@ -24,12 +28,12 @@ export function FinalCta({
           </p>
           <div className="mt-8">
             <Button
-              href="/request-demo"
+              href={ctaHref}
               variant="secondary"
               size="lg"
               className="bg-white text-primary hover:bg-white/90"
             >
-              Request Demo
+              {ctaLabel}
             </Button>
           </div>
         </Reveal>

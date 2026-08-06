@@ -1,9 +1,11 @@
+import { LayoutGrid, Radar, Boxes } from "lucide-react";
 import { Section } from "@/components/ui/Section";
 import { Container } from "@/components/ui/Container";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 import { PageHero } from "@/components/ui/PageHero";
 import { BulletList } from "@/components/ui/BulletList";
 import { Tag } from "@/components/ui/Tag";
+import { RelatedContent } from "@/components/ui/RelatedContent";
 import { Reveal } from "@/components/ui/Reveal";
 import { ProfessionalServices } from "@/components/sections/ProfessionalServices";
 import { FinalCta } from "@/components/sections/FinalCta";
@@ -90,6 +92,30 @@ export function VendorTemplate({ vendor, category }: VendorTemplateProps) {
       </Section>
 
       <ProfessionalServices />
+
+      <RelatedContent
+        title="Explore more of Mellivor"
+        links={[
+          {
+            icon: LayoutGrid,
+            title: "Platform",
+            description: "See where this technology fits into Mellivor's platform.",
+            href: "/platform",
+          },
+          {
+            icon: Radar,
+            title: "Solutions",
+            description: "The business problems this technology helps solve.",
+            href: "/solutions/ai-security",
+          },
+          {
+            icon: Boxes,
+            title: "Technology Partners",
+            description: "The rest of the technology ecosystem.",
+            href: "/technology-partners",
+          },
+        ]}
+      />
 
       <FinalCta
         title={`See ${vendor.name} working inside Mellivor`}

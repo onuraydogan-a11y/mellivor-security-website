@@ -17,6 +17,10 @@ import {
   FlaskConical,
   FileText,
   Quote,
+  BookOpenCheck,
+  CalendarDays,
+  Download,
+  Newspaper,
 } from "lucide-react";
 
 export type ValuePillar = {
@@ -88,4 +92,8 @@ export const RESOURCE_ICONS: Record<string, LucideIcon> = {
   Research: FlaskConical,
   Whitepapers: FileText,
   "Case Studies": Quote,
+  Documentation: BookOpenCheck,
+  Events: CalendarDays,
+  Downloads: Download,
+  News: Newspaper,
 };
