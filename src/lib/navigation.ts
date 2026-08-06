@@ -166,21 +166,61 @@ export const mainNav: NavItem[] = [
       {
         heading: "Professional Services",
         links: [
-          { label: "Consulting", href: "/services/consulting" },
-          { label: "Architecture Design", href: "/services/architecture-design" },
-          { label: "Implementation", href: "/services/implementation" },
-          { label: "Deployment", href: "/services/deployment" },
-          { label: "Integration", href: "/services/integration" },
-          { label: "Migration", href: "/services/migration" },
-          { label: "Training", href: "/services/training" },
-          { label: "Support", href: "/services/support" },
+          {
+            label: "Consulting",
+            href: "/services/consulting",
+            description: "Strategic guidance to align security investment with business risk.",
+          },
+          {
+            label: "Architecture Design",
+            href: "/services/architecture-design",
+            description: "Reference architectures tailored to your environment and constraints.",
+          },
+          {
+            label: "Implementation",
+            href: "/services/implementation",
+            description: "Hands-on deployment of the Mellivor platform and connected technologies.",
+          },
+          {
+            label: "Deployment",
+            href: "/services/deployment",
+            description: "Rollout across cloud, on-premises, or hybrid environments.",
+          },
+          {
+            label: "Integration",
+            href: "/services/integration",
+            description: "Connecting Mellivor to the tools and data sources you already run.",
+          },
+          {
+            label: "Migration",
+            href: "/services/migration",
+            description: "Moving from legacy tooling to the Mellivor platform with minimal disruption.",
+          },
+          {
+            label: "Training",
+            href: "/services/training",
+            description: "Enablement for your SOC, IT, and security teams.",
+          },
+          {
+            label: "Support",
+            href: "/services/support",
+            description: "Ongoing technical support to keep the platform running smoothly.",
+          },
         ],
       },
       {
         heading: "Managed Security Services",
         links: [
-          { label: "Incident Response", href: "/services/incident-response" },
-          { label: "Technical Account Management", href: "/services/technical-account-management" },
+          {
+            label: "Incident Response",
+            href: "/services/incident-response",
+            description: "On-demand expert response when a security incident occurs.",
+          },
+          {
+            label: "Technical Account Management",
+            href: "/services/technical-account-management",
+            description: "A dedicated point of contact for your account's technical needs.",
+          },
         ],
       },
     ],

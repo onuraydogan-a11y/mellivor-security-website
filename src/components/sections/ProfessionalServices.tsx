@@ -5,6 +5,7 @@ import { Container } from "@/components/ui/Container";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 import { Button } from "@/components/ui/Button";
 import { Reveal } from "@/components/ui/Reveal";
+import { Tag } from "@/components/ui/Tag";
 import { mainNav } from "@/lib/navigation";
 
 const GROUP_ICONS: Record<string, LucideIcon> = {
@@ -41,16 +42,11 @@ export function ProfessionalServices() {
                     </span>
                   )}
                   <h3 className="mt-4 text-base font-semibold text-foreground">{heading}</h3>
-                  <ul className="mt-4 flex flex-wrap gap-2">
+                  <div className="mt-4 flex flex-wrap gap-2">
                     {group.links.map((link) => (
-                      <li
-                        key={link.href}
-                        className="rounded-full border border-border px-3 py-1 text-xs font-medium text-muted-foreground"
-                      >
-                        {link.label}
-                      </li>
+                      <Tag key={link.href}>{link.label}</Tag>
                     ))}
-                  </ul>
+                  </div>
                 </div>
               );
             })}

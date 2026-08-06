@@ -1,5 +1,3 @@
-import { BookOpen, FlaskConical, FileText, Quote } from "lucide-react";
-import type { LucideIcon } from "lucide-react";
 import { Section } from "@/components/ui/Section";
 import { Container } from "@/components/ui/Container";
 import { SectionHeading } from "@/components/ui/SectionHeading";
@@ -7,20 +5,12 @@ import { Card } from "@/components/ui/Card";
 import { Button } from "@/components/ui/Button";
 import { Reveal } from "@/components/ui/Reveal";
 import { mainNav } from "@/lib/navigation";
-
-const FEATURED_LABELS = ["Blog", "Research", "Whitepapers", "Case Studies"];
-
-const RESOURCE_ICONS: Record<string, LucideIcon> = {
-  Blog: BookOpen,
-  Research: FlaskConical,
-  Whitepapers: FileText,
-  "Case Studies": Quote,
-};
+import { FEATURED_RESOURCE_LABELS, RESOURCE_ICONS } from "@/lib/site-content";
 
 export function ResourcesOverview() {
   const resources = mainNav.find((item) => item.label === "Resources");
   const links = resources?.columns?.[0]?.links ?? [];
-  const featured = FEATURED_LABELS.map((label) => links.find((l) => l.label === label)).filter(
+  const featured = FEATURED_RESOURCE_LABELS.map((label) => links.find((l) => l.label === label)).filter(
     (link): link is NonNullable<typeof link> => Boolean(link)
   );
 

@@ -13,6 +13,10 @@ import {
   ShoppingCart,
   Zap,
   Radio,
+  BookOpen,
+  FlaskConical,
+  FileText,
+  Quote,
 } from "lucide-react";
 
 export type ValuePillar = {
@@ -75,3 +79,13 @@ export const industries: Industry[] = [
   { icon: Zap, name: "Energy" },
   { icon: Radio, name: "Telecommunications" },
 ];
+
+/** Shared with the Solution page template's "Related Resources" section. */
+export const FEATURED_RESOURCE_LABELS = ["Blog", "Research", "Whitepapers", "Case Studies"];
+
+export const RESOURCE_ICONS: Record<string, LucideIcon> = {
+  Blog: BookOpen,
+  Research: FlaskConical,
+  Whitepapers: FileText,
+  "Case Studies": Quote,
+};

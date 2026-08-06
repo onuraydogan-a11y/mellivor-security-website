@@ -2,7 +2,13 @@ import type { LucideIcon } from "lucide-react";
 import { Cloud, Fingerprint, Activity, Network } from "lucide-react";
 
 export type PartnerVendor = {
+  slug: string;
   name: string;
+  summary: string;
+  overview: string[];
+  portfolio: string[];
+  supportedSolutions: string[];
+  integrations: string[];
 };
 
 export type TechnologyCategory = {
@@ -10,10 +16,13 @@ export type TechnologyCategory = {
   name: string;
   description: string;
   /**
-   * Vendor logos/names populate here as partnerships are confirmed.
-   * Left empty rather than filled with placeholder or invented names —
-   * the homepage renders by category count, not by vendor count, so
-   * this can grow to any number of vendors without touching the UI.
+   * Vendor entries populate here as partnerships are confirmed. Left
+   * empty rather than filled with placeholder or invented names — the
+   * homepage and nav render by category, not by vendor, so this list
+   * can grow to any number of vendors without touching the UI. The
+   * vendor page template (src/components/templates/VendorTemplate.tsx)
+   * and getVendorBySlug() below are already wired to render whatever
+   * gets added here.
    */
   vendors: PartnerVendor[];
 };
@@ -48,3 +57,13 @@ export const technologyCategories: TechnologyCategory[] = [
     vendors: [],
   },
 ];
+
+export function getVendorBySlug(
+  slug: string
+): { vendor: PartnerVendor; category: TechnologyCategory } | undefined {
+  for (const category of technologyCategories) {
+    const vendor = category.vendors.find((v) => v.slug === slug);
+    if (vendor) return { vendor, category };
+  }
+  return undefined;
+}
