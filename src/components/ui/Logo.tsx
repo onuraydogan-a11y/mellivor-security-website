@@ -1,22 +1,34 @@
 import Link from "next/link";
 import { cn } from "@/lib/cn";
 
-export function Logo({ className }: { className?: string }) {
+type LogoProps = {
+  className?: string;
+  imgClassName?: string;
+};
+
+/**
+ * The official Mellivor logo (public/brand/logo.svg), used unmodified
+ * everywhere the brand mark appears. The source file is a full brand
+ * card (navy background, wordmark, tagline) — the SVG's viewBox is
+ * cropped to that card's own content bounds so it renders as a
+ * self-contained lockup rather than a mostly-empty canvas. No path,
+ * shape, or color inside the artwork is altered.
+ */
+export function Logo({ className, imgClassName }: LogoProps) {
   return (
     <Link
       href="/"
-      className={cn(
-        "flex flex-shrink-0 items-center gap-2 whitespace-nowrap text-lg font-semibold tracking-tight text-foreground",
-        className
-      )}
+      aria-label="Mellivor Security home"
+      className={cn("flex flex-shrink-0 items-center", className)}
     >
-      <span
-        aria-hidden
-        className="inline-flex h-6 w-6 items-center justify-center rounded-md bg-primary text-xs font-bold text-primary-foreground"
-      >
-        M
-      </span>
-      Mellivor Security
+      {/* eslint-disable-next-line @next/next/no-img-element */}
+      <img
+        src="/brand/logo.svg"
+        alt="Mellivor Security"
+        width={103}
+        height={40}
+        className={cn("h-10 w-auto rounded-md", imgClassName)}
+      />
     </Link>
   );
 }

@@ -11,14 +11,20 @@ type FeatureSectionProps = {
   title: string;
   description: string;
   features: string[];
+  visual?: React.ReactNode;
   reverse?: boolean;
   className?: string;
 };
 
 /**
- * Alternating icon/copy + checklist block used for product deep-dives
- * (Platform's Mellivor One/Behind24/AI Platform today). Reusable
- * anywhere a "here's what this thing does" block is needed.
+ * Alternating icon/copy + visual block used for product deep-dives
+ * (Platform's Mellivor One/Behind24/AI Platform). Reusable anywhere a
+ * "here's what this thing does" block is needed.
+ *
+ * When `visual` is provided, it takes the opposite column and the
+ * checklist moves inline under the copy (so the visual side is free
+ * for a dashboard mockup / diagram). Without it, the checklist keeps
+ * its own bordered panel on the opposite side, as before.
  */
 export function FeatureSection({
   icon: Icon,
@@ -26,6 +32,7 @@ export function FeatureSection({
   title,
   description,
   features,
+  visual,
   reverse,
   className,
 }: FeatureSectionProps) {
@@ -45,16 +52,26 @@ export function FeatureSection({
                 {title}
               </h2>
               <p className="mt-4 text-lg leading-7 text-muted-foreground">{description}</p>
+
+              {visual && (
+                <div className="mt-6">
+                  <BulletList items={features} />
+                </div>
+              )}
             </div>
 
-            <div
-              className={cn(
-                "rounded-2xl border border-border bg-surface p-8 shadow-sm",
-                reverse ? "lg:order-1" : "lg:order-2"
-              )}
-            >
-              <BulletList items={features} />
-            </div>
+            {visual ? (
+              <div className={reverse ? "lg:order-1" : "lg:order-2"}>{visual}</div>
+            ) : (
+              <div
+                className={cn(
+                  "rounded-2xl border border-border bg-surface p-8 shadow-sm",
+                  reverse ? "lg:order-1" : "lg:order-2"
+                )}
+              >
+                <BulletList items={features} />
+              </div>
+            )}
           </div>
         </Reveal>
       </Container>

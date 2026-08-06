@@ -1,5 +1,6 @@
 import { LayoutGrid, Radar, BrainCircuit } from "lucide-react";
 import { FeatureSection } from "@/components/ui/FeatureSection";
+import { MellivorOneVisual, Behind24Visual, AIPlatformVisual } from "@/components/ui/ProductVisuals";
 
 export function Products() {
   return (
@@ -15,6 +16,7 @@ export function Products() {
           "Role-based views for SOC analysts, IT, and executives",
           "Centralized case management and audit trail",
         ]}
+        visual={<MellivorOneVisual />}
         className="bg-muted/40"
       />
 
@@ -29,6 +31,7 @@ export function Products() {
           "Guided and automated response playbooks",
           "Backed by Mellivor's managed security team",
         ]}
+        visual={<Behind24Visual />}
         reverse
       />
 
@@ -43,6 +46,7 @@ export function Products() {
           "Natural-language summaries for faster investigation",
           "Continuously retrained as new threats emerge",
         ]}
+        visual={<AIPlatformVisual />}
         className="bg-muted/40"
       />
     </>

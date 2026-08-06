@@ -16,11 +16,12 @@
   --muted-foreground: #475569;
   --border: #e2e8f0;
 
-  --primary: #2563eb;
-  --primary-hover: #1d4ed8;
+  /* Brand blue extracted directly from public/brand/logo.svg's icon mark. */
+  --primary: #0037ff;
+  --primary-hover: #002fd9;
   --primary-foreground: #ffffff;
 
-  --ring: #2563eb;
+  --ring: #0037ff;
 }
 
 .dark {
@@ -32,11 +33,12 @@
   --muted-foreground: #94a3b8;
   --border: #1e293b;
 
-  --primary: #3b82f6;
-  --primary-hover: #60a5fa;
+  /* Same brand blue, lightened for legibility against a near-black background. */
+  --primary: #597dff;
+  --primary-hover: #8ca5ff;
   --primary-foreground: #05070d;
 
-  --ring: #3b82f6;
+  --ring: #597dff;
 }
 
 @theme inline {
