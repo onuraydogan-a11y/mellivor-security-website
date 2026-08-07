@@ -42,9 +42,10 @@ export function Header() {
   return (
     <header className="sticky top-0 z-50 border-b border-border bg-background/80 backdrop-blur-md">
       <Container className="flex h-16 items-center sm:h-18 xl:h-20">
-        <Logo />
+        <Logo variant="horizontal" className="hidden xl:flex" />
+        <Logo variant="mark" className="flex xl:hidden" />
 
-        <nav ref={navRef} className="ml-10 hidden items-center gap-8 xl:flex">
+        <nav ref={navRef} className="ml-8 hidden items-center gap-6 xl:flex">
           {mainNav.map((item) => (
             <NavMenu
               key={item.label}
@@ -58,11 +59,7 @@ export function Header() {
           ))}
         </nav>
 
-        <div className="ml-auto hidden items-center gap-4 xl:flex">
-          <Button href="/contact" variant="ghost" size="sm">
-            Contact
-          </Button>
-          <span aria-hidden className="h-5 w-px bg-border" />
+        <div className="ml-auto hidden xl:flex">
           <Button href="/request-demo" variant="primary" size="sm">
             Request Demo
           </Button>
