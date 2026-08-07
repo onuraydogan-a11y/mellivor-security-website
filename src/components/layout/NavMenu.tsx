@@ -52,7 +52,7 @@ export function NavMenu({ item, isOpen, onToggle, onClose }: NavMenuProps) {
         aria-hidden={!isOpen}
         inert={!isOpen}
         className={cn(
-          "fixed inset-x-0 top-16 z-40 border-b border-border bg-background shadow-lg transition-all duration-200 ease-out sm:top-18 xl:top-20",
+          "fixed inset-x-0 top-16 z-40 border-b border-border bg-background shadow-lg transition-all duration-200 ease-out sm:top-18",
           isOpen
             ? "visible translate-y-0 opacity-100"
             : "invisible -translate-y-2 opacity-0"

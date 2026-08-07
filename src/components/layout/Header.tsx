@@ -41,11 +41,10 @@ export function Header() {
 
   return (
     <header className="sticky top-0 z-50 border-b border-border bg-background/80 backdrop-blur-md">
-      <Container className="flex h-16 items-center sm:h-18 xl:h-20">
-        <Logo variant="horizontal" className="hidden xl:flex" />
-        <Logo variant="mark" className="flex xl:hidden" />
+      <Container className="flex h-16 items-center justify-between sm:h-18">
+        <Logo />
 
-        <nav ref={navRef} className="ml-8 hidden items-center gap-6 xl:flex">
+        <nav ref={navRef} className="hidden items-center gap-7 xl:flex">
           {mainNav.map((item) => (
             <NavMenu
               key={item.label}
@@ -59,7 +58,7 @@ export function Header() {
           ))}
         </nav>
 
-        <div className="ml-auto hidden xl:flex">
+        <div className="hidden xl:flex">
           <Button href="/request-demo" variant="primary" size="sm">
             Request Demo
           </Button>
@@ -71,7 +70,7 @@ export function Header() {
           aria-expanded={isMobileNavOpen}
           aria-label="Toggle navigation menu"
           className={cn(
-            "ml-auto inline-flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-md text-foreground xl:hidden",
+            "inline-flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-md text-foreground xl:hidden",
             FOCUS_RING
           )}
         >
