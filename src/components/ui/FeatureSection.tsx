@@ -40,7 +40,7 @@ export function FeatureSection({
     <Section className={className}>
       <Container>
         <Reveal>
-          <div className="grid items-center gap-12 lg:grid-cols-2">
+          <div className="grid grid-cols-1 items-center gap-12 lg:grid-cols-2">
             <div className={reverse ? "lg:order-2" : "lg:order-1"}>
               <span className="inline-flex h-12 w-12 items-center justify-center rounded-xl bg-primary/10 text-primary">
                 <Icon aria-hidden className="h-6 w-6" />
