@@ -5,6 +5,14 @@ import { Container } from "@/components/ui/Container";
 import { Button } from "@/components/ui/Button";
 import { RelatedContent } from "@/components/ui/RelatedContent";
 import { Reveal } from "@/components/ui/Reveal";
+import { buildMetadata } from "@/lib/seo";
+
+export const metadata = buildMetadata({
+  title: "Request Demo",
+  description:
+    "Tell us about your platform, solutions, and deployment model — we'll scope a demo around what you're actually evaluating.",
+  path: "/request-demo",
+});
 
 const LABEL_CLASSES = "text-sm font-medium text-foreground";
 

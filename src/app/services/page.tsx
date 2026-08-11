@@ -22,6 +22,13 @@ import { Reveal } from "@/components/ui/Reveal";
 import { FinalCta } from "@/components/sections/FinalCta";
 import { ServiceGroup } from "./_components/ServiceGroup";
 import { mainNav } from "@/lib/navigation";
+import { buildMetadata } from "@/lib/seo";
+
+export const metadata = buildMetadata({
+  title: "Services",
+  description: "Mellivor's platform is backed by teams who design, deploy, and run it alongside you.",
+  path: "/services",
+});
 
 const PROFESSIONAL_SERVICES_ICONS = {
   Consulting: Lightbulb,

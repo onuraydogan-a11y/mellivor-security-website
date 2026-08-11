@@ -11,7 +11,18 @@ import { FinalCta } from "@/components/sections/FinalCta";
 import { mainNav } from "@/lib/navigation";
 import { technologyCategories } from "@/lib/technology-partners";
 import { FEATURED_RESOURCE_LABELS, RESOURCE_ICONS } from "@/lib/site-content";
-import type { SolutionPageContent } from "@/lib/solutions-content";
+import { solutionContent, type SolutionPageContent } from "@/lib/solutions-content";
+import { buildMetadata } from "@/lib/seo";
+
+/** Metadata for a solution page, generated from its existing solutionContent entry. */
+export function getSolutionMetadata(slug: string) {
+  const content = solutionContent[slug];
+  return buildMetadata({
+    title: content.title,
+    description: content.summary,
+    path: `/solutions/${slug}`,
+  });
+}
 
 /**
  * Shared structure for every solution page: Hero, Overview, Business

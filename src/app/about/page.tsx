@@ -8,6 +8,14 @@ import { RelatedContent } from "@/components/ui/RelatedContent";
 import { Reveal } from "@/components/ui/Reveal";
 import { FinalCta } from "@/components/sections/FinalCta";
 import { valuePillars } from "@/lib/site-content";
+import { buildMetadata } from "@/lib/seo";
+
+export const metadata = buildMetadata({
+  title: "About",
+  description:
+    "Mellivor exists because enterprise security teams were tired of stitching together a dozen disconnected tools and calling it a program.",
+  path: "/about",
+});
 
 export default function AboutPage() {
   return (

@@ -7,6 +7,13 @@ import { RelatedContent } from "@/components/ui/RelatedContent";
 import { EmptyState } from "@/components/ui/EmptyState";
 import { Reveal } from "@/components/ui/Reveal";
 import { FinalCta } from "@/components/sections/FinalCta";
+import { buildMetadata } from "@/lib/seo";
+
+export const metadata = buildMetadata({
+  title: "Press",
+  description: "Coverage, announcements, and press contacts for Mellivor Security.",
+  path: "/press",
+});
 
 export default function PressPage() {
   return (

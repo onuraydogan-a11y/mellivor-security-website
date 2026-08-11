@@ -7,6 +7,14 @@ import { Card } from "@/components/ui/Card";
 import { RelatedContent } from "@/components/ui/RelatedContent";
 import { Reveal } from "@/components/ui/Reveal";
 import { FinalCta } from "@/components/sections/FinalCta";
+import { buildMetadata } from "@/lib/seo";
+
+export const metadata = buildMetadata({
+  title: "Partners",
+  description:
+    "The Mellivor Partner Program is for organizations that want to bring Mellivor's platform and services to their own customers.",
+  path: "/partners",
+});
 
 const PARTNER_TIERS = [
   {

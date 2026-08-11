@@ -7,6 +7,14 @@ import { Products } from "./_components/Products";
 import { Integrations } from "./_components/Integrations";
 import { DeploymentModels } from "./_components/DeploymentModels";
 import { PlatformBenefits } from "./_components/PlatformBenefits";
+import { buildMetadata } from "@/lib/seo";
+
+export const metadata = buildMetadata({
+  title: "Platform",
+  description:
+    "One proprietary platform, built to run as a unified whole rather than a collection of point products.",
+  path: "/platform",
+});
 
 export default function PlatformPage() {
   return (

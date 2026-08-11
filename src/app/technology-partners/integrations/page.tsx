@@ -3,6 +3,13 @@ import { PageHero } from "@/components/ui/PageHero";
 import { RelatedContent } from "@/components/ui/RelatedContent";
 import { FinalCta } from "@/components/sections/FinalCta";
 import { IntegrationEcosystem } from "../_components/IntegrationEcosystem";
+import { buildMetadata } from "@/lib/seo";
+
+export const metadata = buildMetadata({
+  title: "Integration Ecosystem",
+  description: "How Mellivor connects to the tools you already run.",
+  path: "/technology-partners/integrations",
+});
 
 export default function TechnologyPartnersIntegrationsPage() {
   return (

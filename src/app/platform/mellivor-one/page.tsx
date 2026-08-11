@@ -4,6 +4,13 @@ import { FeatureSection } from "@/components/ui/FeatureSection";
 import { MellivorOneVisual } from "@/components/ui/ProductVisuals";
 import { RelatedContent } from "@/components/ui/RelatedContent";
 import { FinalCta } from "@/components/sections/FinalCta";
+import { buildMetadata } from "@/lib/seo";
+
+export const metadata = buildMetadata({
+  title: "Mellivor One",
+  description: "The unified control plane for the Mellivor ecosystem.",
+  path: "/platform/mellivor-one",
+});
 
 export default function MellivorOnePage() {
   return (

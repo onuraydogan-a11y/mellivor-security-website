@@ -10,6 +10,14 @@ import { Reveal } from "@/components/ui/Reveal";
 import { FinalCta } from "@/components/sections/FinalCta";
 import { mainNav } from "@/lib/navigation";
 import { solutionContent } from "@/lib/solutions-content";
+import { buildMetadata } from "@/lib/seo";
+
+export const metadata = buildMetadata({
+  title: "Solutions",
+  description:
+    "Mellivor solutions are organized by the risk you're solving for, not the product you'd have to buy.",
+  path: "/solutions",
+});
 
 const CATEGORY_ICONS: Record<string, LucideIcon> = {
   "AI & Application Risk": Sparkles,

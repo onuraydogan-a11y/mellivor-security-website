@@ -4,6 +4,13 @@ import { FeatureSection } from "@/components/ui/FeatureSection";
 import { Behind24Visual } from "@/components/ui/ProductVisuals";
 import { RelatedContent } from "@/components/ui/RelatedContent";
 import { FinalCta } from "@/components/sections/FinalCta";
+import { buildMetadata } from "@/lib/seo";
+
+export const metadata = buildMetadata({
+  title: "Behind24",
+  description: "Always-on monitoring, detection, and response.",
+  path: "/platform/behind24",
+});
 
 export default function Behind24Page() {
   return (

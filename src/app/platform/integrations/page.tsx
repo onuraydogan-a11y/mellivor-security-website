@@ -3,6 +3,14 @@ import { PageHero } from "@/components/ui/PageHero";
 import { RelatedContent } from "@/components/ui/RelatedContent";
 import { FinalCta } from "@/components/sections/FinalCta";
 import { Integrations } from "../_components/Integrations";
+import { buildMetadata } from "@/lib/seo";
+
+export const metadata = buildMetadata({
+  title: "Platform Integrations",
+  description:
+    "The platform is built vendor-neutral from the ground up, integrating with the technology categories your team already relies on.",
+  path: "/platform/integrations",
+});
 
 export default function PlatformIntegrationsPage() {
   return (

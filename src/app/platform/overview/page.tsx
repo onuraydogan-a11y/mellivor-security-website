@@ -3,6 +3,14 @@ import { PageHero } from "@/components/ui/PageHero";
 import { RelatedContent } from "@/components/ui/RelatedContent";
 import { FinalCta } from "@/components/sections/FinalCta";
 import { Overview } from "../_components/Overview";
+import { buildMetadata } from "@/lib/seo";
+
+export const metadata = buildMetadata({
+  title: "Platform Overview",
+  description:
+    "Mellivor One, Behind24, and the Mellivor AI Platform are built as one system — not three products stapled together after the fact.",
+  path: "/platform/overview",
+});
 
 export default function PlatformOverviewPage() {
   return (

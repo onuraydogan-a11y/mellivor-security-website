@@ -5,6 +5,14 @@ import { Categories } from "./_components/Categories";
 import { FeaturedVendors } from "./_components/FeaturedVendors";
 import { IntegrationEcosystem } from "./_components/IntegrationEcosystem";
 import { BecomeAPartner } from "./_components/BecomeAPartner";
+import { buildMetadata } from "@/lib/seo";
+
+export const metadata = buildMetadata({
+  title: "Technology Partners",
+  description:
+    "Mellivor integrates, distributes, and supports leading cybersecurity technologies across every layer of the stack — organized by category, not locked to a single vendor.",
+  path: "/technology-partners",
+});
 
 export default function TechnologyPartnersPage() {
   return (

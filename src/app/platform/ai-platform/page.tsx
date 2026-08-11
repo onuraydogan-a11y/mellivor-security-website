@@ -4,6 +4,13 @@ import { FeatureSection } from "@/components/ui/FeatureSection";
 import { AIPlatformVisual } from "@/components/ui/ProductVisuals";
 import { RelatedContent } from "@/components/ui/RelatedContent";
 import { FinalCta } from "@/components/sections/FinalCta";
+import { buildMetadata } from "@/lib/seo";
+
+export const metadata = buildMetadata({
+  title: "AI Platform",
+  description: "The intelligence layer behind every Mellivor product.",
+  path: "/platform/ai-platform",
+});
 
 export default function AIPlatformPage() {
   return (

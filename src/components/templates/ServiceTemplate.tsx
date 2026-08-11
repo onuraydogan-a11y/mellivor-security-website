@@ -10,6 +10,19 @@ import { Reveal } from "@/components/ui/Reveal";
 import { FinalCta } from "@/components/sections/FinalCta";
 import { mainNav } from "@/lib/navigation";
 import { SERVICE_CAPABILITIES } from "@/app/services/_content";
+import { buildMetadata } from "@/lib/seo";
+
+/** Metadata for a service page, generated from its existing navigation.ts entry. */
+export function getServiceMetadata(label: string) {
+  const services = mainNav.find((item) => item.label === "Services");
+  const column = services?.columns?.find((c) => c.links.some((link) => link.label === label));
+  const link = column?.links.find((l) => l.label === label);
+  return buildMetadata({
+    title: label,
+    description: link?.description,
+    path: link?.href ?? "/services",
+  });
+}
 
 /** Same engagement model already described on the Services overview page — not service-specific, so it's shared verbatim rather than reworded per page. */
 const ENGAGEMENT_STEPS = [

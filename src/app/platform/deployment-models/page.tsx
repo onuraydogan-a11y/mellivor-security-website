@@ -3,6 +3,12 @@ import { PageHero } from "@/components/ui/PageHero";
 import { RelatedContent } from "@/components/ui/RelatedContent";
 import { FinalCta } from "@/components/sections/FinalCta";
 import { DeploymentModels } from "../_components/DeploymentModels";
+import { buildMetadata } from "@/lib/seo";
+
+export const metadata = buildMetadata({
+  title: "Deployment Models",
+  path: "/platform/deployment-models",
+});
 
 export default function PlatformDeploymentModelsPage() {
   return (

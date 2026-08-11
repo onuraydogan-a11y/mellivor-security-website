@@ -9,17 +9,28 @@ import { Reveal } from "@/components/ui/Reveal";
 import { RelatedContent } from "@/components/ui/RelatedContent";
 import { FinalCta } from "@/components/sections/FinalCta";
 import { technologyCategories } from "@/lib/technology-partners";
+import { buildMetadata } from "@/lib/seo";
 
 type TechCategoryTemplateProps = {
   categoryName: string;
 };
 
-const CATEGORY_SLUGS: Record<string, string> = {
+export const CATEGORY_SLUGS: Record<string, string> = {
   "Cloud & Infrastructure": "cloud-infrastructure",
   "Identity & Access": "identity-access",
   "Detection & Response": "detection-response",
   "Network & Perimeter": "network-perimeter",
 };
+
+/** Metadata for a Technology Partners category page, generated from its existing technologyCategories entry. */
+export function getTechCategoryMetadata(categoryName: string) {
+  const category = technologyCategories.find((c) => c.name === categoryName);
+  return buildMetadata({
+    title: categoryName,
+    description: category?.description,
+    path: `/technology-partners/${CATEGORY_SLUGS[categoryName]}`,
+  });
+}
 
 /**
  * Shared structure for every Technology Partners category page.

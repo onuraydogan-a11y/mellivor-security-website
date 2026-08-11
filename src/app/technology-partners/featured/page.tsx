@@ -3,6 +3,13 @@ import { PageHero } from "@/components/ui/PageHero";
 import { RelatedContent } from "@/components/ui/RelatedContent";
 import { FinalCta } from "@/components/sections/FinalCta";
 import { FeaturedVendors } from "../_components/FeaturedVendors";
+import { buildMetadata } from "@/lib/seo";
+
+export const metadata = buildMetadata({
+  title: "Featured Technologies",
+  description: "Highlighted technologies across the portfolio.",
+  path: "/technology-partners/featured",
+});
 
 export default function FeaturedTechnologiesPage() {
   return (

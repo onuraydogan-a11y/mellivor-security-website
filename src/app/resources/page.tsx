@@ -4,6 +4,14 @@ import { RelatedContent } from "@/components/ui/RelatedContent";
 import { FinalCta } from "@/components/sections/FinalCta";
 import { Categories } from "./_components/Categories";
 import { FaqSection } from "./_components/FaqSection";
+import { buildMetadata } from "@/lib/seo";
+
+export const metadata = buildMetadata({
+  title: "Resources",
+  description:
+    "Everything Mellivor publishes to help security and risk teams make better decisions, in one place.",
+  path: "/resources",
+});
 
 export default function ResourcesPage() {
   return (

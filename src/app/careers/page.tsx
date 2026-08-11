@@ -8,6 +8,14 @@ import { RelatedContent } from "@/components/ui/RelatedContent";
 import { EmptyState } from "@/components/ui/EmptyState";
 import { Reveal } from "@/components/ui/Reveal";
 import { FinalCta } from "@/components/sections/FinalCta";
+import { buildMetadata } from "@/lib/seo";
+
+export const metadata = buildMetadata({
+  title: "Careers",
+  description:
+    "Mellivor is a product company first — engineers, researchers, and analysts building a real platform, not just running someone else's tools.",
+  path: "/careers",
+});
 
 export default function CareersPage() {
   return (

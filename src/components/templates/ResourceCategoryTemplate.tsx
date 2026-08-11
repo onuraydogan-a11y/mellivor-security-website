@@ -8,10 +8,23 @@ import { Reveal } from "@/components/ui/Reveal";
 import { RelatedContent } from "@/components/ui/RelatedContent";
 import { FinalCta } from "@/components/sections/FinalCta";
 import { RESOURCE_ICONS } from "@/lib/site-content";
+import { mainNav } from "@/lib/navigation";
+import { buildMetadata } from "@/lib/seo";
 
 type ResourceCategoryTemplateProps = {
   label: string;
 };
+
+/** Metadata for a resource category page, generated from its existing navigation.ts entry. */
+export function getResourceMetadata(label: string) {
+  const resources = mainNav.find((item) => item.label === "Resources");
+  const link = resources?.columns?.[0]?.links.find((l) => l.label === label);
+  return buildMetadata({
+    title: label,
+    description: `${label} from Mellivor Security — research, guidance, and proof it works.`,
+    path: link?.href ?? "/resources",
+  });
+}
 
 /**
  * Shared structure for every Resources category page. No resource

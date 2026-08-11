@@ -6,6 +6,14 @@ import { SectionHeading } from "@/components/ui/SectionHeading";
 import { RelatedContent } from "@/components/ui/RelatedContent";
 import { Reveal } from "@/components/ui/Reveal";
 import { FinalCta } from "@/components/sections/FinalCta";
+import { buildMetadata } from "@/lib/seo";
+
+export const metadata = buildMetadata({
+  title: "Leadership",
+  description:
+    "Leadership profiles are being finalized for this site. Here's how the team is structured in the meantime.",
+  path: "/leadership",
+});
 
 const LEADERSHIP_ROLES = [
   "Chief Executive Officer",

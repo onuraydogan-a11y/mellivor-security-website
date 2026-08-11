@@ -9,6 +9,14 @@ import { ProcessSteps } from "@/components/ui/ProcessSteps";
 import { RelatedContent } from "@/components/ui/RelatedContent";
 import { Reveal } from "@/components/ui/Reveal";
 import { technologyCategories } from "@/lib/technology-partners";
+import { buildMetadata } from "@/lib/seo";
+
+export const metadata = buildMetadata({
+  title: "Become a Partner",
+  description:
+    "If your product solves a problem enterprises care about, there's likely a place for it in the Mellivor portfolio.",
+  path: "/technology-partners/become-a-partner",
+});
 
 const BENEFITS = [
   {

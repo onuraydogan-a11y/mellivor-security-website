@@ -5,6 +5,13 @@ import { Container } from "@/components/ui/Container";
 import { Button } from "@/components/ui/Button";
 import { RelatedContent } from "@/components/ui/RelatedContent";
 import { Reveal } from "@/components/ui/Reveal";
+import { buildMetadata } from "@/lib/seo";
+
+export const metadata = buildMetadata({
+  title: "Contact",
+  description: "Reach the right team directly, or request a demo scoped to what you're evaluating.",
+  path: "/contact",
+});
 
 const CONTACT_PATHS = [
   {

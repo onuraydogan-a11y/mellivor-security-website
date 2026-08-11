@@ -3,6 +3,13 @@ import { PageHero } from "@/components/ui/PageHero";
 import { RelatedContent } from "@/components/ui/RelatedContent";
 import { FinalCta } from "@/components/sections/FinalCta";
 import { FeaturedVendors } from "../_components/FeaturedVendors";
+import { buildMetadata } from "@/lib/seo";
+
+export const metadata = buildMetadata({
+  title: "Partner Vendors",
+  description: "Browse every technology in the Mellivor ecosystem.",
+  path: "/technology-partners/vendors",
+});
 
 export default function PartnerVendorsPage() {
   return (
