@@ -35,7 +35,7 @@ export function TechnologyPartners() {
               Don&apos;t see your technology? The Mellivor ecosystem is built to
               keep adding vendors.
             </p>
-            <div className="flex flex-shrink-0 gap-3">
+            <div className="flex flex-shrink-0 flex-col gap-3 sm:flex-row">
               <Button href="/technology-partners" variant="outline" size="md">
                 Explore Technology Partners
               </Button>
