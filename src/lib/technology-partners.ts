@@ -1,5 +1,5 @@
 import type { LucideIcon } from "lucide-react";
-import { Cloud, Fingerprint, Activity, Network } from "lucide-react";
+import { Cloud, Fingerprint, Activity, Network, Sparkles, Webhook, ScanSearch, Ghost } from "lucide-react";
 
 export type PartnerVendor = {
   slug: string;
@@ -271,6 +271,118 @@ export const technologyCategories: TechnologyCategory[] = [
         supportedSolutions: ["Network Security", "Data Security"],
         integrations: [
           "Adds CyberServal's network and data security products to Mellivor's Network & Perimeter technology category.",
+        ],
+      },
+    ],
+  },
+  {
+    icon: Sparkles,
+    name: "AI Security",
+    description: "AI and generative-AI platforms and services in the Mellivor ecosystem.",
+    vendors: [
+      {
+        slug: "metalore",
+        name: "Metalore",
+        logo: "/partners/metalore.png",
+        summary:
+          "Gen-AI and data engineering consultancy offering LLM-powered business platforms and predictive analytics.",
+        overview: [
+          "Metalore is a Turkey-based consulting and software company focused on Generative AI and data engineering for enterprise digital transformation.",
+          "Its GPTHouse platform offers LLM- and RAG-supported intelligent agent solutions, alongside data platform consulting, generative BI, and predictive analytics.",
+        ],
+        portfolio: [
+          "GPTHouse (Gen-AI platform)",
+          "LLM and RAG-based agent solutions",
+          "Data platform consulting",
+          "Predictive analytics and modeling",
+        ],
+        supportedSolutions: ["AI Security"],
+        integrations: [
+          "Adds Metalore's Gen-AI and data platform to Mellivor's AI Security technology category.",
+        ],
+      },
+    ],
+  },
+  {
+    icon: Webhook,
+    name: "API Security",
+    description: "API discovery, testing, and runtime protection technologies.",
+    vendors: [
+      {
+        slug: "wallarm",
+        name: "Wallarm",
+        logo: "/partners/wallarm.svg",
+        summary:
+          "Cloud-native Web Application and API Protection (WAAP) platform covering REST, GraphQL, and other API protocols.",
+        overview: [
+          "Wallarm provides a cloud-native WAAP (Web Application and API Protection) platform that protects applications and APIs across cloud, Kubernetes, and API gateway environments.",
+          "The platform performs deep packet inspection to cover the OWASP Top 10 and API-specific threats, supporting REST, GraphQL, and other API protocols.",
+        ],
+        portfolio: [
+          "Web Application and API Protection (WAAP)",
+          "API discovery and inventory",
+          "OWASP Top 10 coverage",
+          "Kubernetes and API gateway integration",
+        ],
+        supportedSolutions: ["API Security", "Web Application Security"],
+        integrations: [
+          "Adds Wallarm's WAAP platform to Mellivor's API Security technology category.",
+        ],
+      },
+    ],
+  },
+  {
+    icon: ScanSearch,
+    name: "Attack Surface Management (ASM)",
+    description: "External attack surface discovery, monitoring, and exposure assessment technologies.",
+    vendors: [
+      {
+        slug: "outpost24",
+        name: "Outpost24",
+        logo: "/partners/outpost24.png",
+        summary:
+          "External Attack Surface Management platform providing continuous discovery, monitoring, and risk assessment of internet-facing assets.",
+        overview: [
+          "Outpost24 offers an External Attack Surface Management (EASM) platform that continuously discovers, monitors, and assesses an organization's internet-facing assets and vulnerabilities.",
+          "The Outpost24 Exposure Management Platform extends this into a modular framework combining EASM, vulnerability management, and application security.",
+        ],
+        portfolio: [
+          "External Attack Surface Management (EASM)",
+          "Exposure Management Platform",
+          "CompassDRP (EASM + threat intelligence)",
+          "CyberFlex (ASM + PTaaS)",
+        ],
+        supportedSolutions: ["Attack Surface Management", "Exposure Management (CTEM)"],
+        integrations: [
+          "Adds Outpost24's attack surface management platform to Mellivor's Attack Surface Management technology category.",
+        ],
+      },
+    ],
+  },
+  {
+    icon: Ghost,
+    name: "Deception",
+    description: "Cyber deception platforms that detect attackers through decoys rather than signatures.",
+    vendors: [
+      {
+        slug: "acalvio",
+        name: "Acalvio",
+        logo: "/partners/acalvio.svg",
+        summary:
+          "AI-powered cyber deception platform delivering early, accurate detection of breaches and insider threats.",
+        overview: [
+          "Acalvio is a cyber deception technology vendor whose ShadowPlex platform is built on its patented Deception 2.0 technology.",
+          "ShadowPlex deploys deception decoys and honeytokens across on-premises, private cloud, and public cloud environments, with pre-built SIEM integration for delivering threat intelligence.",
+        ],
+        portfolio: [
+          "ShadowPlex Distributed Deception Platform",
+          "ShadowPlex Cloud Security (IAM and cloud-native deception)",
+          "ShadowPlex Targeted Threat Intel",
+          "SIEM integration",
+        ],
+        supportedSolutions: ["Deception Technology"],
+        integrations: [
+          "Adds Acalvio's deception platform to Mellivor's Deception technology category.",
         ],
       },
     ],

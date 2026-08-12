@@ -41,7 +41,12 @@ export function getTechCategoryMetadata(categoryName: string) {
  */
 export function TechCategoryTemplate({ categoryName }: TechCategoryTemplateProps) {
   const category = technologyCategories.find((c) => c.name === categoryName);
-  const otherCategories = technologyCategories.filter((c) => c.name !== categoryName);
+  // Only categories with a dedicated index page (CATEGORY_SLUGS entry) are
+  // cross-linked here — newer categories without one yet still appear on
+  // the main Technology Partners page and their own vendors' detail pages.
+  const otherCategories = technologyCategories.filter(
+    (c) => c.name !== categoryName && CATEGORY_SLUGS[c.name]
+  );
 
   return (
     <>
