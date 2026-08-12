@@ -7,7 +7,7 @@ import { FinalCta } from "@/components/sections/FinalCta";
 import { buildMetadata } from "@/lib/seo";
 
 export const metadata = buildMetadata({
-  title: "AI Platform",
+  title: "Mellivor AI Kernel",
   description: "The intelligence layer behind every Mellivor product.",
   path: "/platform/ai-platform",
 });
@@ -17,7 +17,7 @@ export default function AIPlatformPage() {
     <>
       <PageHero
         eyebrow="Platform"
-        title="AI Platform"
+        title="Mellivor AI Kernel"
         description="The intelligence layer behind every Mellivor product."
         primaryCta={{ label: "Request Demo", href: "/request-demo" }}
         size="md"
@@ -25,9 +25,10 @@ export default function AIPlatformPage() {
 
       <FeatureSection
         icon={BrainCircuit}
-        eyebrow="AI Platform"
+        logo="/brand/logo-transparent.svg"
+        eyebrow="Mellivor AI Kernel"
         title="The intelligence layer behind every product"
-        description="The Mellivor AI Platform prioritizes signal, reduces noise, and gives analysts context — so time goes to real risk, not investigation busywork."
+        description="The Mellivor AI Kernel prioritizes signal, reduces noise, and gives analysts context — so time goes to real risk, not investigation busywork."
         features={[
           "Machine learning models trained on real detection data",
           "Automated triage and alert prioritization",
@@ -62,7 +63,7 @@ export default function AIPlatformPage() {
       />
 
       <FinalCta
-        title="See the AI Platform in action"
+        title="See the Mellivor AI Kernel in action"
         description="Request a demo scoped to this product and your environment."
       />
     </>

@@ -42,7 +42,7 @@ export const mainNav: NavItem[] = [
             description: "Always-on monitoring, detection, and response.",
           },
           {
-            label: "AI Platform",
+            label: "Mellivor AI Kernel",
             href: "/platform/ai-platform",
             description: "The intelligence layer behind every Mellivor product.",
           },
@@ -273,7 +273,7 @@ export const footerNav: FooterColumn[] = [
     links: [
       { label: "Mellivor One", href: "/platform/mellivor-one" },
       { label: "Behind24", href: "/platform/behind24" },
-      { label: "AI Platform", href: "/platform/ai-platform" },
+      { label: "Mellivor AI Kernel", href: "/platform/ai-platform" },
       { label: "Platform Overview", href: "/platform/overview" },
     ],
   },

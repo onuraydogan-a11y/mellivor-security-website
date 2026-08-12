@@ -8,7 +8,7 @@ import { buildMetadata } from "@/lib/seo";
 export const metadata = buildMetadata({
   title: "Platform Overview",
   description:
-    "Mellivor One, Behind24, and the Mellivor AI Platform are built as one system — not three products stapled together after the fact.",
+    "Mellivor One, Behind24, and the Mellivor AI Kernel are built as one system — not three products stapled together after the fact.",
   path: "/platform/overview",
 });
 

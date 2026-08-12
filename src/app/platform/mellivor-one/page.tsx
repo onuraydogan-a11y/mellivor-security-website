@@ -25,12 +25,13 @@ export default function MellivorOnePage() {
 
       <FeatureSection
         icon={LayoutGrid}
+        logo="/brand/logo-transparent.svg"
         eyebrow="Mellivor One"
         title="The control plane for everything Mellivor"
         description="Mellivor One is the unified command center for your security program — bringing platform data, workflows, and reporting into a single place your team actually wants to use."
         features={[
           "Unified dashboard across detection, response, and risk data",
-          "Single pane of glass for Behind24 and AI Platform findings",
+          "Single pane of glass for Behind24 and Mellivor AI Kernel findings",
           "Role-based views for SOC analysts, IT, and executives",
           "Centralized case management and audit trail",
         ]}

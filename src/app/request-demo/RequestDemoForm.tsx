@@ -5,14 +5,12 @@ import { Button } from "@/components/ui/Button";
 import { buildMailtoUrl, HONEYPOT_FIELD_NAME } from "@/lib/leadCapture";
 
 /**
- * TEST ONLY — temporary destination for RC3.1 end-to-end verification,
- * provided directly by the business. Not the final production address.
  * No email-sending service, CRM, or API route exists in this project
  * (verified before implementing), so submitting builds a real, addressed
  * mailto: draft in the visitor's own mail client rather than sending
  * anything server-side.
  */
-const DEMO_REQUEST_EMAIL = "onur.aydogan@mellivorsecurity.com"; // TEST ONLY — not final
+const DEMO_REQUEST_EMAIL = "sales@mellivorsecurity.com";
 
 const LABEL_CLASSES = "text-sm font-medium text-foreground";
 
@@ -182,7 +180,7 @@ export function RequestDemoForm() {
             </option>
             <option>Mellivor One</option>
             <option>Behind24</option>
-            <option>Mellivor AI Platform</option>
+            <option>Mellivor AI Kernel</option>
             <option>The full platform</option>
             <option>Not sure yet</option>
           </select>

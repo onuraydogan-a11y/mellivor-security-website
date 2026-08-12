@@ -33,7 +33,7 @@ export function Overview() {
           <SectionHeading
             eyebrow="Overview"
             title="One platform, three pillars"
-            description="Mellivor One, Behind24, and the Mellivor AI Platform are built as one system — not three products stapled together after the fact. Each pillar strengthens the others."
+            description="Mellivor One, Behind24, and the Mellivor AI Kernel are built as one system — not three products stapled together after the fact. Each pillar strengthens the others."
           />
         </Reveal>
 
@@ -49,7 +49,7 @@ export function Overview() {
               }}
             />
             <div className="flex flex-col items-center gap-4 sm:flex-row sm:justify-center">
-              <DiagramNode icon={BrainCircuit} label="AI Platform" />
+              <DiagramNode icon={BrainCircuit} label="Mellivor AI Kernel" />
               <DiagramArrow />
               <DiagramNode icon={Radar} label="Behind24" />
               <DiagramArrow />
@@ -57,7 +57,7 @@ export function Overview() {
             </div>
           </div>
           <p className="mt-6 text-center text-sm text-muted-foreground">
-            The AI Platform prioritizes signal for Behind24 to act on, and Behind24&apos;s findings
+            The Mellivor AI Kernel prioritizes signal for Behind24 to act on, and Behind24&apos;s findings
             surface in Mellivor One — one continuous loop instead of three separate tools.
           </p>
         </Reveal>

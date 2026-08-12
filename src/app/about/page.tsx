@@ -38,7 +38,7 @@ export default function AboutPage() {
                 team, designed to work as a single system from the start.
               </p>
               <p className="text-lg leading-7 text-muted-foreground">
-                That platform — Mellivor One, Behind24, and the Mellivor AI Platform — is
+                That platform — Mellivor One, Behind24, and the Mellivor AI Kernel — is
                 backed by professional and managed services teams, and extended by a
                 technology partner ecosystem, so customers get a coherent program instead of
                 a pile of point solutions.

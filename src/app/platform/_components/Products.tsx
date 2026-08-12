@@ -7,12 +7,13 @@ export function Products() {
     <>
       <FeatureSection
         icon={LayoutGrid}
+        logo="/brand/logo-transparent.svg"
         eyebrow="Mellivor One"
         title="The control plane for everything Mellivor"
         description="Mellivor One is the unified command center for your security program — bringing platform data, workflows, and reporting into a single place your team actually wants to use."
         features={[
           "Unified dashboard across detection, response, and risk data",
-          "Single pane of glass for Behind24 and AI Platform findings",
+          "Single pane of glass for Behind24 and Mellivor AI Kernel findings",
           "Role-based views for SOC analysts, IT, and executives",
           "Centralized case management and audit trail",
         ]}
@@ -22,6 +23,7 @@ export function Products() {
 
       <FeatureSection
         icon={Radar}
+        logo="/products/behind24-logo.png"
         eyebrow="Behind24"
         title="Always-on monitoring, detection, and response"
         description="Behind24 watches your environment continuously, correlating signal across endpoints, network, cloud, and identity to catch what point tools miss."
@@ -37,9 +39,10 @@ export function Products() {
 
       <FeatureSection
         icon={BrainCircuit}
-        eyebrow="AI Platform"
+        logo="/brand/logo-transparent.svg"
+        eyebrow="Mellivor AI Kernel"
         title="The intelligence layer behind every product"
-        description="The Mellivor AI Platform prioritizes signal, reduces noise, and gives analysts context — so time goes to real risk, not investigation busywork."
+        description="The Mellivor AI Kernel prioritizes signal, reduces noise, and gives analysts context — so time goes to real risk, not investigation busywork."
         features={[
           "Machine learning models trained on real detection data",
           "Automated triage and alert prioritization",

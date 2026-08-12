@@ -15,7 +15,7 @@ type Stage = {
  * Same connected-node diagram pattern already used on the Platform
  * page (Overview.tsx's "One platform, three pillars"), extended to
  * five stages. Descriptions are reused/paraphrased from language
- * already used elsewhere on the site (AI Platform, Behind24, and
+ * already used elsewhere on the site (Mellivor AI Kernel, Behind24, and
  * Exposure Management copy) — no new claims introduced.
  */
 const STAGES: Stage[] = [
@@ -27,7 +27,7 @@ const STAGES: Stage[] = [
   {
     icon: BrainCircuit,
     title: "Intelligence",
-    description: "Noise reduced, signal prioritized by the AI Platform.",
+    description: "Noise reduced, signal prioritized by the Mellivor AI Kernel.",
   },
   {
     icon: ShieldAlert,

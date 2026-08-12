@@ -36,7 +36,7 @@ export const valuePillars: ValuePillar[] = [
     icon: BrainCircuit,
     title: "AI Native",
     description:
-      "The Mellivor AI Platform sits at the core of every product, not bolted on as an afterthought.",
+      "The Mellivor AI Kernel sits at the core of every product, not bolted on as an afterthought.",
   },
   {
     icon: Building2,

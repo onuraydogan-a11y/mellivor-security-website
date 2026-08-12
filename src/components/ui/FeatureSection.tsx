@@ -7,6 +7,10 @@ import { cn } from "@/lib/cn";
 
 type FeatureSectionProps = {
   icon: LucideIcon;
+  /** Real product logo. Takes precedence over `icon` when present. */
+  logo?: string;
+  /** Set when `logo` is a white/light-only asset that needs a dark chip to stay visible. */
+  logoOnDark?: boolean;
   eyebrow: string;
   title: string;
   description: string;
@@ -18,7 +22,7 @@ type FeatureSectionProps = {
 
 /**
  * Alternating icon/copy + visual block used for product deep-dives
- * (Platform's Mellivor One/Behind24/AI Platform). Reusable anywhere a
+ * (Platform's Mellivor One/Behind24/Mellivor AI Kernel). Reusable anywhere a
  * "here's what this thing does" block is needed.
  *
  * When `visual` is provided, it takes the opposite column and the
@@ -28,6 +32,8 @@ type FeatureSectionProps = {
  */
 export function FeatureSection({
   icon: Icon,
+  logo,
+  logoOnDark,
   eyebrow,
   title,
   description,
@@ -42,9 +48,21 @@ export function FeatureSection({
         <Reveal>
           <div className="grid grid-cols-1 items-center gap-12 lg:grid-cols-2">
             <div className={reverse ? "lg:order-2" : "lg:order-1"}>
-              <span className="inline-flex h-12 w-12 items-center justify-center rounded-xl bg-primary/10 text-primary">
-                <Icon aria-hidden className="h-6 w-6" />
-              </span>
+              {logo ? (
+                <span
+                  className={cn(
+                    "inline-flex h-12 items-center rounded-xl border border-border px-3",
+                    logoOnDark ? "dark bg-background" : "bg-background"
+                  )}
+                >
+                  {/* eslint-disable-next-line @next/next/no-img-element */}
+                  <img src={logo} alt={`${eyebrow} logo`} className="h-7 max-w-[200px] object-contain" />
+                </span>
+              ) : (
+                <span className="inline-flex h-12 w-12 items-center justify-center rounded-xl bg-primary/10 text-primary">
+                  <Icon aria-hidden className="h-6 w-6" />
+                </span>
+              )}
               <p className="mt-4 text-sm font-semibold uppercase tracking-wide text-primary">
                 {eyebrow}
               </p>

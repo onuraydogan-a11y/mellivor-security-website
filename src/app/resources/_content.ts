@@ -2,7 +2,7 @@ export const faqs = [
   {
     question: "What is Mellivor?",
     answer:
-      "Mellivor is an enterprise security company that develops its own platform (Mellivor One, Behind24, and the Mellivor AI Platform), delivers professional and managed services, and integrates with the technology ecosystem you already run.",
+      "Mellivor is an enterprise security company that develops its own platform (Mellivor One, Behind24, and the Mellivor AI Kernel), delivers professional and managed services, and integrates with the technology ecosystem you already run.",
   },
   {
     question: "Do I have to replace my existing security tools to use Mellivor?",

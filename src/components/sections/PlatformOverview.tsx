@@ -12,7 +12,13 @@ import { cn } from "@/lib/cn";
 const PRODUCT_ICONS: Record<string, LucideIcon> = {
   "Mellivor One": LayoutGrid,
   Behind24: Radar,
-  "AI Platform": BrainCircuit,
+  "Mellivor AI Kernel": BrainCircuit,
+};
+
+const PRODUCT_LOGOS: Record<string, string> = {
+  "Mellivor One": "/brand/logo-transparent.svg",
+  Behind24: "/products/behind24-logo.png",
+  "Mellivor AI Kernel": "/brand/logo-transparent.svg",
 };
 
 /**
@@ -30,6 +36,7 @@ export function PlatformOverview() {
 
   const [featured, ...rest] = products;
   const FeaturedIcon = featured ? PRODUCT_ICONS[featured.label] : undefined;
+  const featuredLogo = featured ? PRODUCT_LOGOS[featured.label] : undefined;
 
   return (
     <Section className="bg-muted/40">
@@ -69,10 +76,21 @@ export function PlatformOverview() {
                 className="group rounded-2xl border border-border bg-background p-8 shadow-sm transition-all duration-200 hover:-translate-y-0.5 hover:border-primary/40 hover:shadow-lg"
               >
                 <div className="flex items-start justify-between gap-4">
-                  {FeaturedIcon && (
-                    <span className="inline-flex h-12 w-12 items-center justify-center rounded-xl bg-primary/10 text-primary">
-                      <FeaturedIcon aria-hidden className="h-6 w-6" />
+                  {featuredLogo ? (
+                    <span className="inline-flex h-11 items-center rounded-xl border border-border bg-background px-3">
+                      {/* eslint-disable-next-line @next/next/no-img-element */}
+                      <img
+                        src={featuredLogo}
+                        alt={`${featured.label} logo`}
+                        className="h-6 max-w-[160px] object-contain"
+                      />
                     </span>
+                  ) : (
+                    FeaturedIcon && (
+                      <span className="inline-flex h-12 w-12 items-center justify-center rounded-xl bg-primary/10 text-primary">
+                        <FeaturedIcon aria-hidden className="h-6 w-6" />
+                      </span>
+                    )
                   )}
                   <ArrowRight
                     aria-hidden
@@ -89,6 +107,7 @@ export function PlatformOverview() {
             <div className={cn("grid gap-4", rest.length > 1 && "sm:grid-cols-2")}>
               {rest.map((product) => {
                 const Icon = PRODUCT_ICONS[product.label];
+                const logo = PRODUCT_LOGOS[product.label];
                 return (
                   <Link
                     key={product.href}
@@ -96,10 +115,21 @@ export function PlatformOverview() {
                     className="group rounded-2xl border border-border bg-background p-6 shadow-sm transition-all duration-200 hover:-translate-y-0.5 hover:border-primary/40 hover:shadow-lg"
                   >
                     <div className="flex items-center justify-between gap-3">
-                      {Icon && (
-                        <span className="inline-flex h-9 w-9 items-center justify-center rounded-lg bg-primary/10 text-primary">
-                          <Icon aria-hidden className="h-4 w-4" />
+                      {logo ? (
+                        <span className="inline-flex h-9 items-center rounded-lg border border-border bg-background px-2">
+                          {/* eslint-disable-next-line @next/next/no-img-element */}
+                          <img
+                            src={logo}
+                            alt={`${product.label} logo`}
+                            className="h-5 max-w-[110px] object-contain"
+                          />
                         </span>
+                      ) : (
+                        Icon && (
+                          <span className="inline-flex h-9 w-9 items-center justify-center rounded-lg bg-primary/10 text-primary">
+                            <Icon aria-hidden className="h-4 w-4" />
+                          </span>
+                        )
                       )}
                       <ArrowRight
                         aria-hidden

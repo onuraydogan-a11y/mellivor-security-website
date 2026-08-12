@@ -25,6 +25,7 @@ export default function Behind24Page() {
 
       <FeatureSection
         icon={Radar}
+        logo="/products/behind24-logo.png"
         eyebrow="Behind24"
         title="Always-on monitoring, detection, and response"
         description="Behind24 watches your environment continuously, correlating signal across endpoints, network, cloud, and identity to catch what point tools miss."
