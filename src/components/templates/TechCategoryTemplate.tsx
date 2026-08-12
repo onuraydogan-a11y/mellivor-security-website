@@ -63,6 +63,8 @@ export function TechCategoryTemplate({ categoryName }: TechCategoryTemplateProps
                   <Card
                     key={vendor.slug}
                     icon={category.icon}
+                    logo={vendor.logo}
+                    logoOnDark={vendor.logoOnDark}
                     title={vendor.name}
                     description={vendor.summary}
                     href={`/technology-partners/${vendor.slug}`}

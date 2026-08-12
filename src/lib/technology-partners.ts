@@ -6,6 +6,8 @@ export type PartnerVendor = {
   name: string;
   /** Path under /public, e.g. "/partners/vendor.svg". Optional — omit until an asset is sourced. */
   logo?: string;
+  /** Set when the logo asset is white/light-only and needs a dark chip behind it to stay visible. */
+  logoOnDark?: boolean;
   summary: string;
   overview: string[];
   portfolio: string[];
@@ -61,6 +63,7 @@ export const technologyCategories: TechnologyCategory[] = [
         slug: "aikido-security",
         name: "Aikido Security",
         logo: "/partners/aikido.svg",
+        logoOnDark: true,
         summary:
           "All-in-one application security platform covering code, cloud, and runtime security from a single dashboard.",
         overview: [
@@ -201,6 +204,7 @@ export const technologyCategories: TechnologyCategory[] = [
         slug: "soteryan",
         name: "Soteryan",
         logo: "/partners/soteryan.svg",
+        logoOnDark: true,
         summary:
           "Breach intelligence and fraud prevention platform that detects stolen credentials and stops fraud in real time.",
         overview: [
@@ -251,6 +255,7 @@ export const technologyCategories: TechnologyCategory[] = [
         slug: "cyberserval",
         name: "CyberServal",
         logo: "/partners/cyberserval.svg",
+        logoOnDark: true,
         summary:
           "AI-powered cybersecurity company delivering network security, data security, and AI-driven security products.",
         overview: [

@@ -9,6 +9,7 @@ import { RelatedContent } from "@/components/ui/RelatedContent";
 import { Reveal } from "@/components/ui/Reveal";
 import { ProfessionalServices } from "@/components/sections/ProfessionalServices";
 import { FinalCta } from "@/components/sections/FinalCta";
+import { cn } from "@/lib/cn";
 import type { PartnerVendor, TechnologyCategory } from "@/lib/technology-partners";
 
 type VendorTemplateProps = {
@@ -36,6 +37,20 @@ export function VendorTemplate({ vendor, category }: VendorTemplateProps) {
       <Section>
         <Container>
           <Reveal>
+            {vendor.logo && (
+              <span
+                className={cn(
+                  "mb-6 inline-flex h-12 items-center rounded-xl border border-border px-4",
+                  vendor.logoOnDark ? "dark bg-background" : "bg-background"
+                )}
+              >
+                <img
+                  src={vendor.logo}
+                  alt={`${vendor.name} logo`}
+                  className="h-7 max-w-[160px] object-contain"
+                />
+              </span>
+            )}
             <SectionHeading
               eyebrow="Vendor Overview"
               title={`About ${vendor.name}`}

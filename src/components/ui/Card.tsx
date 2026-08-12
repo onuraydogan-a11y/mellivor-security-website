@@ -4,19 +4,34 @@ import { cn } from "@/lib/cn";
 
 type CardProps = {
   icon?: LucideIcon;
+  /** Real vendor/partner logo. Takes precedence over `icon` when present. */
+  logo?: string;
+  /** Set when `logo` is a white/light-only asset that needs a dark chip to stay visible. */
+  logoOnDark?: boolean;
   title: string;
   description?: string;
   href?: string;
   className?: string;
 };
 
-export function Card({ icon: Icon, title, description, href, className }: CardProps) {
+export function Card({ icon: Icon, logo, logoOnDark, title, description, href, className }: CardProps) {
   const content = (
     <>
-      {Icon && (
-        <span className="inline-flex h-10 w-10 items-center justify-center rounded-lg bg-primary/10 text-primary">
-          <Icon aria-hidden className="h-5 w-5" />
+      {logo ? (
+        <span
+          className={cn(
+            "inline-flex h-10 items-center rounded-lg border border-border px-2",
+            logoOnDark ? "dark bg-background" : "bg-background"
+          )}
+        >
+          <img src={logo} alt={`${title} logo`} className="h-6 max-w-[110px] object-contain" />
         </span>
+      ) : (
+        Icon && (
+          <span className="inline-flex h-10 w-10 items-center justify-center rounded-lg bg-primary/10 text-primary">
+            <Icon aria-hidden className="h-5 w-5" />
+          </span>
+        )
       )}
       <h3 className="mt-4 text-base font-semibold text-foreground">{title}</h3>
       {description && (
