@@ -8,7 +8,7 @@ import { TechnologyPartners } from "@/components/sections/TechnologyPartners";
 import { IndustriesWeServe } from "@/components/sections/IndustriesWeServe";
 import { ProfessionalServices } from "@/components/sections/ProfessionalServices";
 import { ResourcesOverview } from "@/components/sections/ResourcesOverview";
-import { FinalCta } from "@/components/sections/FinalCta";
+import { HomeFinalCta } from "@/components/sections/HomeFinalCta";
 import { buildMetadata, SITE_NAME } from "@/lib/seo";
 
 // The root page shares its route segment with the root layout, so the
@@ -39,7 +39,7 @@ export default function Home() {
       <IndustriesWeServe />
       <ProfessionalServices />
       <ResourcesOverview />
-      <FinalCta />
+      <HomeFinalCta />
     </>
   );
 }
