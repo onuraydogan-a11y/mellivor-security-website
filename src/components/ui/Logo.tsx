@@ -7,12 +7,12 @@ type LogoProps = {
 };
 
 /**
- * The official Mellivor logo (public/brand/logo.svg), used unmodified
- * everywhere the brand mark appears. The source file is a full brand
- * card (navy background, wordmark, tagline) — the SVG's viewBox is
- * cropped to that card's own content bounds so it renders as a
- * self-contained lockup rather than a mostly-empty canvas. No path,
- * shape, or color inside the artwork is altered.
+ * The official Mellivor logo (public/brand/logo-transparent.svg) — icon
+ * + wordmark + tagline with no background card, so it sits directly on
+ * the header instead of reading as a pasted-on navy box. The full
+ * brand-card version (with navy background) still lives at
+ * public/brand/logo.svg for contexts that want the card treatment
+ * (e.g. social previews).
  */
 export function Logo({ className, imgClassName }: LogoProps) {
   return (
@@ -23,11 +23,11 @@ export function Logo({ className, imgClassName }: LogoProps) {
     >
       {/* eslint-disable-next-line @next/next/no-img-element */}
       <img
-        src="/brand/logo.svg"
+        src="/brand/logo-transparent.svg"
         alt="Mellivor Security"
         width={103}
         height={40}
-        className={cn("h-10 w-auto rounded-md", imgClassName)}
+        className={cn("h-10 w-auto", imgClassName)}
       />
     </Link>
   );

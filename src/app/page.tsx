@@ -1,5 +1,7 @@
 import { Hero } from "@/components/sections/Hero";
+import { TrustBar } from "@/components/sections/TrustBar";
 import { WhyMellivor } from "@/components/sections/WhyMellivor";
+import { Testimonials } from "@/components/sections/Testimonials";
 import { PlatformOverview } from "@/components/sections/PlatformOverview";
 import { SolutionsOverview } from "@/components/sections/SolutionsOverview";
 import { TechnologyPartners } from "@/components/sections/TechnologyPartners";
@@ -28,7 +30,9 @@ export default function Home() {
   return (
     <>
       <Hero />
+      <TrustBar />
       <WhyMellivor />
+      <Testimonials />
       <PlatformOverview />
       <SolutionsOverview />
       <TechnologyPartners />

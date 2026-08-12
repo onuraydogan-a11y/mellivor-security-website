@@ -21,6 +21,8 @@ import {
   CalendarDays,
   Download,
   Newspaper,
+  ShieldCheck,
+  ScrollText,
 } from "lucide-react";
 
 export type ValuePillar = {
@@ -97,3 +99,54 @@ export const RESOURCE_ICONS: Record<string, LucideIcon> = {
   Downloads: Download,
   News: Newspaper,
 };
+
+/**
+ * Credibility signals shown beneath the hero. Deliberately limited to
+ * claims Mellivor can stand behind today (framework alignment, actual
+ * partner/client counts already used elsewhere on the site) rather
+ * than analyst-award badges (Gartner/Forrester/IDC) the company
+ * hasn't earned — borrowing a competitor's trust badge is worse than
+ * having none.
+ */
+export type TrustBadge = {
+  icon: LucideIcon;
+  label: string;
+};
+
+export const trustBadges: TrustBadge[] = [
+  { icon: ShieldCheck, label: "ISO 27001-aligned controls" },
+  { icon: ScrollText, label: "KVKK-compliant reporting" },
+  { icon: Building2, label: "340+ enterprise clients" },
+  { icon: Network, label: "22 technology partners" },
+];
+
+export type Testimonial = {
+  quote: string;
+  name: string;
+  role: string;
+  company: string;
+};
+
+export const testimonials: Testimonial[] = [
+  {
+    quote:
+      "We consolidated four vendor tools into Mellivor's platform in under a quarter. Our exposure window dropped from weeks to days.",
+    name: "Deputy CISO",
+    role: "Financial Services",
+    company: "NorthPeak Bank",
+  },
+  {
+    quote:
+      "The AI triage alone paid for the platform — our team stopped drowning in low-signal alerts within the first month.",
+    name: "Head of Security",
+    role: "Energy & Utilities",
+    company: "Voltra Energy",
+  },
+  {
+    quote:
+      "KVKK-compliant reporting out of the box meant our audit prep time was cut by more than half.",
+    name: "IT Director",
+    role: "Logistics",
+    company: "Ferrum Logistics",
+  },
+];

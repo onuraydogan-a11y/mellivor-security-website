@@ -21,6 +21,75 @@ function StatTile({ label, value, primary }: { label: string; value: string; pri
   );
 }
 
+const POSTURE_UPDATES = [
+  { label: "Cloud misconfiguration remediated — AWS", status: "Resolved" },
+  { label: "New vendor onboarded — risk assessed", status: "Reviewed" },
+  { label: "Quarterly compliance review completed", status: "Passed" },
+];
+
+const RISK_DISTRIBUTION = [
+  { label: "Infrastructure", pct: 34 },
+  { label: "Third-party vendors", pct: 27 },
+  { label: "Identity & access", pct: 21 },
+];
+
+/**
+ * The homepage hero's flagship visual — composed from the same
+ * StatTile/Tag/BrowserFrame language as the Platform sub-pages, so it
+ * reads as one product family rather than a one-off illustration.
+ * Framed as an executive risk summary (posture score, compliance,
+ * governance updates) rather than a raw SOC ticket queue — this is
+ * the view a CISO checks, not the console an analyst works from.
+ */
+export function HomeHeroVisual() {
+  return (
+    <BrowserFrame className="w-full max-w-[520px]">
+      <div className="flex items-center justify-between">
+        <span className="text-xs font-semibold text-muted-foreground">
+          Executive Risk Summary
+        </span>
+        <span className="inline-flex items-center gap-1.5 rounded-full bg-primary/10 px-2.5 py-1 text-xs font-semibold text-primary">
+          <span className="h-1.5 w-1.5 rounded-full bg-primary" />
+          Updated hourly
+        </span>
+      </div>
+
+      <div className="mt-4 grid grid-cols-3 gap-3">
+        <StatTile label="Posture score" value="94" primary />
+        <StatTile label="Assets monitored" value="4,284" />
+        <StatTile label="Compliance domains" value="12/12" />
+      </div>
+
+      <div className="mt-4 space-y-2">
+        {POSTURE_UPDATES.map((item) => (
+          <div
+            key={item.label}
+            className="flex items-center justify-between gap-3 rounded-lg border border-border px-3 py-2"
+          >
+            <span className="truncate text-xs text-foreground">{item.label}</span>
+            <Tag>{item.status}</Tag>
+          </div>
+        ))}
+      </div>
+
+      <div className="mt-4 border-t border-border pt-4">
+        <p className="text-xs font-semibold text-muted-foreground">Risk distribution</p>
+        <div className="mt-2 space-y-1.5">
+          {RISK_DISTRIBUTION.map((t) => (
+            <div key={t.label} className="flex items-center gap-2">
+              <span className="w-32 shrink-0 truncate text-xs text-foreground">{t.label}</span>
+              <div className="h-1.5 flex-1 overflow-hidden rounded-full bg-muted">
+                <div className="h-full rounded-full bg-primary" style={{ width: `${t.pct}%` }} />
+              </div>
+              <span className="w-8 shrink-0 text-right text-xs text-muted-foreground">{t.pct}%</span>
+            </div>
+          ))}
+        </div>
+      </div>
+    </BrowserFrame>
+  );
+}
+
 const CASES = [
   { id: "CASE-4471", label: "Anomalous login — APAC region", severity: "High" },
   { id: "CASE-4468", label: "Endpoint isolation completed", severity: "Resolved" },
