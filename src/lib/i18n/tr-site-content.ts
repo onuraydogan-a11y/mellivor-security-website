@@ -30,27 +30,27 @@ import type { ValuePillar, Industry, TrustBadge, Testimonial } from "@/lib/site-
 export const trValuePillars: ValuePillar[] = [
   {
     icon: BrainCircuit,
-    title: "Yapay Zeka Kökenli",
+    title: "Yapay Zeka Odaklı",
     description:
-      "Mellivor AI Kernel, sonradan eklenen bir özellik değil, her ürünün merkezinde yer alır.",
+      "Mellivor AI Kernel, sonradan eklenmiş bir özellik değil; her ürünün merkezinde yer alır.",
   },
   {
     icon: Building2,
-    title: "Kurumsal Ölçekte Hazır",
+    title: "Kurumsal Kullanıma Hazır",
     description:
-      "Bulut, şirket içi ve hibrit ortamlarda kurumsal ölçekte ve güvenilirlikte devreye alınmak üzere tasarlandı.",
+      "Bulut, şirket içi ve hibrit ortamlarda kurumsal ölçekte güvenilir şekilde çalışmak üzere tasarlanmıştır.",
   },
   {
     icon: Network,
     title: "Tedarikçiden Bağımsız",
     description:
-      "Tek bir tedarikçi yığınını dayatmak yerine zaten kullandığınız teknolojileri entegre eder.",
+      "Tek bir tedarikçi yığınını dayatmak yerine, halihazırda kullandığınız teknolojilerle entegre olur.",
   },
   {
     icon: Boxes,
     title: "Teknoloji Ekosistemi",
     description:
-      "Büyüyen teknoloji ortakları portföyü, sizi bağlı kılmadan platformu genişletir.",
+      "Genişleyen teknoloji ortağı ekosistemi, sizi tek bir tedarikçiye bağımlı kılmadan platformun yeteneklerini genişletir.",
   },
   {
     icon: Users,
@@ -62,7 +62,7 @@ export const trValuePillars: ValuePillar[] = [
     icon: Globe,
     title: "Küresel Ortaklıklar",
     description:
-      "Mellivor'un dünya çapındaki erişimini, teslimatını ve desteğini genişleten bir ortak ağı.",
+      "Mellivor'un dünya çapındaki erişimini, teslimat kapasitesini ve desteğini genişleten bir ortaklık ağı.",
   },
 ];
 

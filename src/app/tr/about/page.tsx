@@ -13,7 +13,7 @@ import { buildMetadata } from "@/lib/seo";
 export const metadata = buildMetadata({
   title: "Hakkımızda",
   description:
-    "Mellivor, kurumsal güvenlik ekiplerinin bir düzine birbirinden kopuk aracı bir araya getirip buna program demekten yorulmasından doğdu.",
+    "Mellivor, kurumsal güvenlik ekiplerinin bir düzine birbirinden kopuk aracı bir araya getirip buna bir güvenlik programı demekten yorulmasıyla ortaya çıktı.",
   path: "/tr/about",
 });
 
@@ -22,8 +22,8 @@ export default function AboutPageTR() {
     <>
       <PageHero
         eyebrow="Hakkımızda"
-        title="Parçalardan bir araya getirilmiş değil, platform olarak inşa edilmiş güvenlik"
-        description="Mellivor, kurumsal güvenlik ekiplerinin bir düzine birbirinden kopuk aracı bir araya getirip buna program demekten yorulmasından doğdu."
+        title="Parçalardan bir araya getirilmeden, bir platform olarak inşa edilmiş güvenlik uygulaması"
+        description="Mellivor, kurumsal güvenlik ekiplerinin bir düzine birbirinden kopuk aracı bir araya getirip buna bir güvenlik programı demekten yorulmasıyla ortaya çıktı."
       />
 
       <Section>
@@ -32,10 +32,10 @@ export default function AboutPageTR() {
             <SectionHeading eyebrow="Hikayemiz" title="Mellivor neden var" align="left" />
             <div className="mt-6 max-w-3xl space-y-4">
               <p className="text-lg leading-7 text-muted-foreground">
-                Çoğu güvenlik programı aynı şekilde büyür: tespit için bir araç, müdahale için bir başkası, risk için bir başkası; her biri farklı bir tedarikçiden, her birinin kendi konsolu. Mellivor, bu kuralın istisnası olmak üzere inşa edildi — baştan itibaren tek bir sistem olarak çalışacak şekilde, tek bir ekip tarafından inşa edilmiş tek bir platform.
+                Çoğu güvenlik programı aynı şekilde büyür: tespit için bir araç, müdahale için başka bir araç, risk yönetimi için bir başkası; her biri farklı bir tedarikçiden, her birinin kendi konsolu. Mellivor, bu modele alternatif olmak üzere tasarlandı — en başından itibaren tek bir sistem olarak çalışacak şekilde, tek bir ekip tarafından geliştirilen tek bir platform.
               </p>
               <p className="text-lg leading-7 text-muted-foreground">
-                O platform — Mellivor One, Behind24 ve Mellivor AI Kernel — profesyonel ve yönetilen hizmet ekipleri tarafından destekleniyor ve bir teknoloji ortağı ekosistemiyle genişletiliyor; böylece müşteriler bir yığın nokta çözüm yerine tutarlı bir program elde ediyor.
+                Bu platform; Mellivor One, Behind24 ve Mellivor AI Kernel&apos;den oluşuyor. Profesyonel ve yönetilen hizmet ekipleri tarafından destekleniyor, teknoloji ortağı ekosistemiyle genişletiliyor. Böylece müşteriler, birbiriyle bağlantısız nokta çözümlerinden oluşan bir yığın yerine, tutarlı ve bütünleşik bir güvenlik programına sahip oluyor.
               </p>
             </div>
           </Reveal>
