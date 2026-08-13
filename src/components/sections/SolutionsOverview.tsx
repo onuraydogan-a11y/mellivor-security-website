@@ -11,7 +11,11 @@ import { Button } from "@/components/ui/Button";
 import { Reveal } from "@/components/ui/Reveal";
 import { cn } from "@/lib/cn";
 import { mainNav } from "@/lib/navigation";
+import { trMainNav } from "@/lib/i18n/tr-navigation";
 import { solutionContent } from "@/lib/solutions-content";
+import { trSolutionContent } from "@/lib/i18n/tr-solutions-content";
+import { t } from "@/lib/i18n/ui-strings";
+import type { Locale } from "@/lib/i18n/locale";
 
 const CATEGORY_ICONS: Record<string, LucideIcon> = {
   "AI & Application Risk": Sparkles,
@@ -19,14 +23,24 @@ const CATEGORY_ICONS: Record<string, LucideIcon> = {
   "Detection & Response": Activity,
   "Infrastructure & Data": Database,
   "Risk & Compliance": ClipboardCheck,
+  "AI ve Uygulama Riski": Sparkles,
+  "Tehdit ve Maruziyet": Radar,
+  "Tespit ve Müdahale": Activity,
+  "Altyapı ve Veri": Database,
+  "Risk ve Uyumluluk": ClipboardCheck,
 };
 
 function slugify(value: string) {
   return value.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/(^-|-$)/g, "");
 }
 
-export function SolutionsOverview() {
-  const solutions = mainNav.find((item) => item.label === "Solutions");
+export function SolutionsOverview({ locale = "en" }: { locale?: Locale }) {
+  const strings = t(locale).solutionsOverview;
+  const nav = locale === "tr" ? trMainNav : mainNav;
+  const content = locale === "tr" ? trSolutionContent : solutionContent;
+  const prefix = locale === "tr" ? "/tr" : "";
+  const solutionsLabel = locale === "tr" ? "Çözümler" : "Solutions";
+  const solutions = nav.find((item) => item.label === solutionsLabel);
   const categories = solutions?.columns ?? [];
   const [activeIndex, setActiveIndex] = useState(0);
   const active = categories[activeIndex];
@@ -37,9 +51,9 @@ export function SolutionsOverview() {
       <Container>
         <Reveal>
           <SectionHeading
-            eyebrow="Solutions"
-            title="Built around the problems you actually have"
-            description="Mellivor solutions are organized by the risk you're solving for, not the product you'd have to buy."
+            eyebrow={strings.eyebrow}
+            title={strings.title}
+            description={strings.description}
             align="left"
           />
         </Reveal>
@@ -48,7 +62,7 @@ export function SolutionsOverview() {
           <div className="mt-14 grid gap-10 lg:grid-cols-[minmax(0,280px)_1fr] lg:gap-16">
             <div className="flex flex-col border-t border-border sm:border-t-0 sm:border-l sm:border-border">
               {categories.map((category, index) => {
-                const heading = category.heading ?? "Solutions";
+                const heading = category.heading ?? solutionsLabel;
                 const Icon = CATEGORY_ICONS[heading];
                 const isActive = index === activeIndex;
                 return (
@@ -86,8 +100,8 @@ export function SolutionsOverview() {
 
                 <div className="mt-8 grid gap-6 sm:grid-cols-2">
                   {active.links.map((link) => {
-                    const slug = link.href.replace("/solutions/", "");
-                    const summary = solutionContent[slug]?.summary;
+                    const slug = link.href.replace(`${prefix}/solutions/`, "");
+                    const summary = content[slug]?.summary;
                     return (
                       <Link key={link.href} href={link.href} className="group block">
                         <h4 className="text-sm font-semibold text-foreground group-hover:text-primary">
@@ -102,8 +116,8 @@ export function SolutionsOverview() {
                 </div>
 
                 <div className="mt-8">
-                  <Button href={`/solutions#${slugify(active.heading ?? "")}`} variant="outline" size="md">
-                    Explore {active.heading}
+                  <Button href={`${prefix}/solutions#${slugify(active.heading ?? "")}`} variant="outline" size="md">
+                    {strings.exploreCategory(active.heading ?? "")}
                   </Button>
                 </div>
               </div>
@@ -111,8 +125,8 @@ export function SolutionsOverview() {
           </div>
 
           <div className="mt-10 flex justify-center">
-            <Button href="/solutions" variant="outline" size="md">
-              View all solutions
+            <Button href={`${prefix}/solutions`} variant="outline" size="md">
+              {strings.viewAll}
             </Button>
           </div>
         </Reveal>

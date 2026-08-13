@@ -4,6 +4,22 @@ import { Section } from "@/components/ui/Section";
 import { Container } from "@/components/ui/Container";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 import { Reveal } from "@/components/ui/Reveal";
+import type { Locale } from "@/lib/i18n/locale";
+
+const STRINGS = {
+  en: {
+    eyebrow: "Overview",
+    title: "One platform, three pillars",
+    description: "Mellivor One, Behind24, and the Mellivor AI Kernel are built as one system — not three products stapled together after the fact. Each pillar strengthens the others.",
+    footer: "The Mellivor AI Kernel prioritizes signal for Behind24 to act on, and Behind24's findings surface in Mellivor One — one continuous loop instead of three separate tools.",
+  },
+  tr: {
+    eyebrow: "Genel Bakış",
+    title: "Tek platform, üç sütun",
+    description: "Mellivor One, Behind24 ve Mellivor AI Kernel; sonradan bir araya getirilmiş üç ürün değil, tek bir sistem olarak inşa edildi. Her sütun diğerlerini güçlendirir.",
+    footer: "Mellivor AI Kernel, Behind24'ün harekete geçeceği sinyali önceliklendirir ve Behind24'ün bulguları Mellivor One'da ortaya çıkar — üç ayrı araç yerine tek bir sürekli döngü.",
+  },
+};
 
 function DiagramNode({ icon: Icon, label }: { icon: LucideIcon; label: string }) {
   return (
@@ -25,15 +41,16 @@ function DiagramArrow() {
   );
 }
 
-export function Overview() {
+export function Overview({ locale = "en" }: { locale?: Locale }) {
+  const strings = STRINGS[locale];
   return (
     <Section>
       <Container>
         <Reveal>
           <SectionHeading
-            eyebrow="Overview"
-            title="One platform, three pillars"
-            description="Mellivor One, Behind24, and the Mellivor AI Kernel are built as one system — not three products stapled together after the fact. Each pillar strengthens the others."
+            eyebrow={strings.eyebrow}
+            title={strings.title}
+            description={strings.description}
           />
         </Reveal>
 
@@ -57,8 +74,7 @@ export function Overview() {
             </div>
           </div>
           <p className="mt-6 text-center text-sm text-muted-foreground">
-            The Mellivor AI Kernel prioritizes signal for Behind24 to act on, and Behind24&apos;s findings
-            surface in Mellivor One — one continuous loop instead of three separate tools.
+            {strings.footer}
           </p>
         </Reveal>
       </Container>

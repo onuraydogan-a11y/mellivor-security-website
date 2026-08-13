@@ -7,31 +7,39 @@ import { Button } from "@/components/ui/Button";
 import { Reveal } from "@/components/ui/Reveal";
 import { Tag } from "@/components/ui/Tag";
 import { mainNav } from "@/lib/navigation";
+import { trMainNav } from "@/lib/i18n/tr-navigation";
+import { t } from "@/lib/i18n/ui-strings";
+import type { Locale } from "@/lib/i18n/locale";
 
 const GROUP_ICONS: Record<string, LucideIcon> = {
   "Professional Services": Compass,
   "Managed Security Services": LifeBuoy,
+  "Profesyonel Hizmetler": Compass,
+  "Yönetilen Güvenlik Hizmetleri": LifeBuoy,
 };
 
-export function ProfessionalServices() {
-  const services = mainNav.find((item) => item.label === "Services");
+export function ProfessionalServices({ locale = "en" }: { locale?: Locale }) {
+  const strings = t(locale).professionalServices;
+  const nav = locale === "tr" ? trMainNav : mainNav;
+  const services = nav.find((item) => item.label === (locale === "tr" ? "Hizmetler" : "Services"));
   const groups = services?.columns ?? [];
+  const servicesHref = locale === "tr" ? "/tr/services" : "/services";
 
   return (
     <Section className="bg-muted/40">
       <Container>
         <Reveal>
           <SectionHeading
-            eyebrow="Services"
-            title="Expert delivery, start to finish"
-            description="Mellivor's platform is backed by teams who design, deploy, and run it alongside you."
+            eyebrow={strings.eyebrow}
+            title={strings.title}
+            description={strings.description}
           />
         </Reveal>
 
         <Reveal delay={100}>
           <div className="mt-14 grid gap-6 sm:grid-cols-2">
             {groups.map((group) => {
-              const heading = group.heading ?? "Services";
+              const heading = group.heading ?? strings.fallbackHeading;
               const Icon = GROUP_ICONS[heading];
 
               return (
@@ -53,8 +61,8 @@ export function ProfessionalServices() {
           </div>
 
           <div className="mt-10 flex justify-center">
-            <Button href="/services" variant="outline" size="md">
-              Explore services
+            <Button href={servicesHref} variant="outline" size="md">
+              {strings.exploreServices}
             </Button>
           </div>
         </Reveal>

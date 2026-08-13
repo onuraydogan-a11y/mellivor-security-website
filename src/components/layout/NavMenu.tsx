@@ -3,6 +3,7 @@ import { ChevronDown, ArrowRight } from "lucide-react";
 import { cn } from "@/lib/cn";
 import { Container } from "@/components/ui/Container";
 import type { NavItem } from "@/lib/navigation";
+import type { Locale } from "@/lib/i18n/locale";
 
 const FOCUS_RING =
   "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background";
@@ -12,9 +13,10 @@ type NavMenuProps = {
   isOpen: boolean;
   onToggle: () => void;
   onClose: () => void;
+  locale?: Locale;
 };
 
-export function NavMenu({ item, isOpen, onToggle, onClose }: NavMenuProps) {
+export function NavMenu({ item, isOpen, onToggle, onClose, locale = "en" }: NavMenuProps) {
   if (!item.columns) {
     return (
       <Link
@@ -103,7 +105,7 @@ export function NavMenu({ item, isOpen, onToggle, onClose }: NavMenuProps) {
               FOCUS_RING
             )}
           >
-            Explore {item.label}
+            {locale === "tr" ? `${item.label} sayfasını görüntüle` : `Explore ${item.label}`}
             <ArrowRight aria-hidden className="h-4 w-4" />
           </Link>
         </Container>

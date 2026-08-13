@@ -9,10 +9,14 @@ import { Reveal } from "@/components/ui/Reveal";
 import { RelatedContent } from "@/components/ui/RelatedContent";
 import { FinalCta } from "@/components/sections/FinalCta";
 import { technologyCategories } from "@/lib/technology-partners";
+import { trTechnologyCategories } from "@/lib/i18n/tr-technology-partners";
+import { t } from "@/lib/i18n/ui-strings";
+import type { Locale } from "@/lib/i18n/locale";
 import { buildMetadata } from "@/lib/seo";
 
 type TechCategoryTemplateProps = {
   categoryName: string;
+  locale?: Locale;
 };
 
 export const CATEGORY_SLUGS: Record<string, string> = {
@@ -22,13 +26,22 @@ export const CATEGORY_SLUGS: Record<string, string> = {
   "Network & Perimeter": "network-perimeter",
 };
 
+export const TR_CATEGORY_SLUGS: Record<string, string> = {
+  "Bulut ve Altyapı": "cloud-infrastructure",
+  "Kimlik ve Erişim": "identity-access",
+  "Tespit ve Müdahale": "detection-response",
+  "Ağ ve Çevre Güvenliği": "network-perimeter",
+};
+
 /** Metadata for a Technology Partners category page, generated from its existing technologyCategories entry. */
-export function getTechCategoryMetadata(categoryName: string) {
-  const category = technologyCategories.find((c) => c.name === categoryName);
+export function getTechCategoryMetadata(categoryName: string, locale: Locale = "en") {
+  const categories = locale === "tr" ? trTechnologyCategories : technologyCategories;
+  const slugs = locale === "tr" ? TR_CATEGORY_SLUGS : CATEGORY_SLUGS;
+  const category = categories.find((c) => c.name === categoryName);
   return buildMetadata({
     title: categoryName,
     description: category?.description,
-    path: `/technology-partners/${CATEGORY_SLUGS[categoryName]}`,
+    path: `${locale === "tr" ? "/tr" : ""}/technology-partners/${slugs[categoryName]}`,
   });
 }
 
@@ -39,29 +52,34 @@ export function getTechCategoryMetadata(categoryName: string) {
  * list is still empty, matching the honest empty state already used
  * on the main Technology Partners page.
  */
-export function TechCategoryTemplate({ categoryName }: TechCategoryTemplateProps) {
-  const category = technologyCategories.find((c) => c.name === categoryName);
-  // Only categories with a dedicated index page (CATEGORY_SLUGS entry) are
+export function TechCategoryTemplate({ categoryName, locale = "en" }: TechCategoryTemplateProps) {
+  const strings = t(locale).techCategoryTemplate;
+  const categories = locale === "tr" ? trTechnologyCategories : technologyCategories;
+  const slugs = locale === "tr" ? TR_CATEGORY_SLUGS : CATEGORY_SLUGS;
+  const prefix = locale === "tr" ? "/tr" : "";
+  const category = categories.find((c) => c.name === categoryName);
+  // Only categories with a dedicated index page (a slugs entry) are
   // cross-linked here — newer categories without one yet still appear on
   // the main Technology Partners page and their own vendors' detail pages.
-  const otherCategories = technologyCategories.filter(
-    (c) => c.name !== categoryName && CATEGORY_SLUGS[c.name]
+  const otherCategories = categories.filter(
+    (c) => c.name !== categoryName && slugs[c.name]
   );
+  const becomePartnerHref = `${prefix}/technology-partners/become-a-partner`;
 
   return (
     <>
       <PageHero
-        eyebrow="Technology Partners"
+        eyebrow={locale === "tr" ? "Teknoloji Ortakları" : "Technology Partners"}
         title={categoryName}
         description={category?.description}
-        secondaryCta={{ label: "Become a Partner", href: "/technology-partners/become-a-partner" }}
+        secondaryCta={{ label: strings.becomeAPartner, href: becomePartnerHref }}
         size="md"
       />
 
       <Section>
         <Container>
           <Reveal>
-            <SectionHeading eyebrow="Partners" title={`${categoryName} technologies`} />
+            <SectionHeading eyebrow={strings.partnersEyebrow} title={strings.partnersTitle(categoryName)} />
             {category && category.vendors.length > 0 ? (
               <div className="mt-14 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
                 {category.vendors.map((vendor) => (
@@ -72,7 +90,7 @@ export function TechCategoryTemplate({ categoryName }: TechCategoryTemplateProps
                     logoOnDark={vendor.logoOnDark}
                     title={vendor.name}
                     description={vendor.summary}
-                    href={`/technology-partners/${vendor.slug}`}
+                    href={`${prefix}/technology-partners/${vendor.slug}`}
                   />
                 ))}
               </div>
@@ -80,9 +98,9 @@ export function TechCategoryTemplate({ categoryName }: TechCategoryTemplateProps
               <div className="mt-14">
                 <EmptyState
                   icon={Handshake}
-                  title={`No ${categoryName} partners yet`}
-                  description="Featured technology partners will appear here as partnerships are confirmed. In the meantime, reach out if you'd like to bring your technology into the Mellivor ecosystem."
-                  action={{ label: "Become a Partner", href: "/technology-partners/become-a-partner" }}
+                  title={strings.emptyTitle(categoryName)}
+                  description={strings.emptyDescription}
+                  action={{ label: strings.becomeAPartner, href: becomePartnerHref }}
                 />
               </div>
             )}
@@ -93,7 +111,7 @@ export function TechCategoryTemplate({ categoryName }: TechCategoryTemplateProps
       <Section className="bg-muted/40">
         <Container>
           <Reveal>
-            <SectionHeading eyebrow="Other Categories" title="Browse the rest of the portfolio" />
+            <SectionHeading eyebrow={strings.otherCategoriesEyebrow} title={strings.otherCategoriesTitle} />
             <div className="mt-14 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
               {otherCategories.map((c) => (
                 <Card
@@ -101,7 +119,7 @@ export function TechCategoryTemplate({ categoryName }: TechCategoryTemplateProps
                   icon={c.icon}
                   title={c.name}
                   description={c.description}
-                  href={`/technology-partners/${CATEGORY_SLUGS[c.name]}`}
+                  href={`${prefix}/technology-partners/${slugs[c.name]}`}
                 />
               ))}
             </div>
@@ -110,32 +128,35 @@ export function TechCategoryTemplate({ categoryName }: TechCategoryTemplateProps
       </Section>
 
       <RelatedContent
-        title="Related partnership paths"
+        title={strings.relatedTitle}
         links={[
           {
             icon: Boxes,
-            title: "Technology Partners",
-            description: "The full ecosystem, organized by category.",
-            href: "/technology-partners",
+            title: strings.relatedTechPartners.title,
+            description: strings.relatedTechPartners.description,
+            href: `${prefix}/technology-partners`,
           },
           {
             icon: Briefcase,
-            title: "Partners",
-            description: "For resellers and MSPs, not technology vendors.",
-            href: "/partners",
+            title: strings.relatedPartners.title,
+            description: strings.relatedPartners.description,
+            href: `${prefix}/partners`,
           },
           {
             icon: Handshake,
-            title: "Contact",
-            description: "Reach the right team for your question.",
-            href: "/contact",
+            title: strings.relatedContact.title,
+            description: strings.relatedContact.description,
+            href: `${prefix}/contact`,
           },
         ]}
+        locale={locale}
       />
 
       <FinalCta
-        title="See the ecosystem inside Mellivor One"
-        description="Request a demo to see how Mellivor connects to the technologies you already run."
+        title={strings.finalCtaTitle}
+        description={strings.finalCtaDescription}
+        ctaLabel={t(locale).header.requestDemo}
+        ctaHref={`${prefix}/request-demo`}
       />
     </>
   );

@@ -10,11 +10,15 @@ import { Reveal } from "@/components/ui/Reveal";
 import { ProfessionalServices } from "@/components/sections/ProfessionalServices";
 import { FinalCta } from "@/components/sections/FinalCta";
 import { cn } from "@/lib/cn";
+import { t } from "@/lib/i18n/ui-strings";
+import type { Locale } from "@/lib/i18n/locale";
 import type { PartnerVendor, TechnologyCategory } from "@/lib/technology-partners";
 
 type VendorTemplateProps = {
   vendor: PartnerVendor;
   category: TechnologyCategory;
+  locale?: Locale;
+  requestDemoHref?: string;
 };
 
 /**
@@ -23,14 +27,19 @@ type VendorTemplateProps = {
  * TechnologyCategory's `vendors` array) — this component and its
  * route never need to change.
  */
-export function VendorTemplate({ vendor, category }: VendorTemplateProps) {
+export function VendorTemplate({ vendor, category, locale = "en", requestDemoHref = "/request-demo" }: VendorTemplateProps) {
+  const strings = t(locale).vendorTemplate;
+  const platformHref = locale === "tr" ? "/tr/platform" : "/platform";
+  const solutionsHref = locale === "tr" ? "/tr/solutions/ai-security" : "/solutions/ai-security";
+  const techPartnersHref = locale === "tr" ? "/tr/technology-partners" : "/technology-partners";
+
   return (
     <>
       <PageHero
         eyebrow={category.name}
         title={vendor.name}
         description={vendor.summary}
-        primaryCta={{ label: "Request Demo", href: "/request-demo" }}
+        primaryCta={{ label: t(locale).header.requestDemo, href: requestDemoHref }}
         size="md"
       />
 
@@ -52,8 +61,8 @@ export function VendorTemplate({ vendor, category }: VendorTemplateProps) {
               </span>
             )}
             <SectionHeading
-              eyebrow="Vendor Overview"
-              title={`About ${vendor.name}`}
+              eyebrow={strings.overviewEyebrow}
+              title={strings.overviewTitle(vendor.name)}
               align="left"
             />
             <div className="mt-6 max-w-3xl space-y-4">
@@ -70,7 +79,7 @@ export function VendorTemplate({ vendor, category }: VendorTemplateProps) {
       <Section className="bg-muted/40">
         <Container>
           <Reveal>
-            <SectionHeading eyebrow="Technology Portfolio" title="What this technology covers" align="left" />
+            <SectionHeading eyebrow={strings.portfolioEyebrow} title={strings.portfolioTitle} align="left" />
             <div className="mt-6 max-w-2xl">
               <BulletList items={vendor.portfolio} />
             </div>
@@ -82,8 +91,8 @@ export function VendorTemplate({ vendor, category }: VendorTemplateProps) {
         <Container>
           <Reveal>
             <SectionHeading
-              eyebrow="Supported Solutions"
-              title="Where this fits in the Mellivor ecosystem"
+              eyebrow={strings.solutionsEyebrow}
+              title={strings.solutionsTitle}
               align="left"
             />
             <div className="mt-6 flex flex-wrap gap-2">
@@ -98,7 +107,7 @@ export function VendorTemplate({ vendor, category }: VendorTemplateProps) {
       <Section className="bg-muted/40">
         <Container>
           <Reveal>
-            <SectionHeading eyebrow="Integrations" title="How it connects to Mellivor" align="left" />
+            <SectionHeading eyebrow={strings.integrationsEyebrow} title={strings.integrationsTitle} align="left" />
             <div className="mt-6 max-w-2xl">
               <BulletList items={vendor.integrations} />
             </div>
@@ -106,35 +115,38 @@ export function VendorTemplate({ vendor, category }: VendorTemplateProps) {
         </Container>
       </Section>
 
-      <ProfessionalServices />
+      <ProfessionalServices locale={locale} />
 
       <RelatedContent
-        title="Explore more of Mellivor"
+        title={strings.relatedTitle}
         links={[
           {
             icon: LayoutGrid,
-            title: "Platform",
-            description: "See where this technology fits into Mellivor's platform.",
-            href: "/platform",
+            title: strings.relatedPlatform.title,
+            description: strings.relatedPlatform.description,
+            href: platformHref,
           },
           {
             icon: Radar,
-            title: "Solutions",
-            description: "The business problems this technology helps solve.",
-            href: "/solutions/ai-security",
+            title: strings.relatedSolutions.title,
+            description: strings.relatedSolutions.description,
+            href: solutionsHref,
           },
           {
             icon: Boxes,
-            title: "Technology Partners",
-            description: "The rest of the technology ecosystem.",
-            href: "/technology-partners",
+            title: strings.relatedTechPartners.title,
+            description: strings.relatedTechPartners.description,
+            href: techPartnersHref,
           },
         ]}
+        locale={locale}
       />
 
       <FinalCta
-        title={`See ${vendor.name} working inside Mellivor`}
-        description="Request a demo scoped to this technology and your environment."
+        title={strings.finalCtaTitle(vendor.name)}
+        description={strings.finalCtaDescription}
+        ctaLabel={t(locale).header.requestDemo}
+        ctaHref={requestDemoHref}
       />
     </>
   );

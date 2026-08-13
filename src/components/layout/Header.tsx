@@ -2,6 +2,7 @@
 
 import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { ChevronDown, Menu, X } from "lucide-react";
 import { Container } from "@/components/ui/Container";
 import { Button } from "@/components/ui/Button";
@@ -9,6 +10,9 @@ import { Logo } from "@/components/ui/Logo";
 import { NavMenu } from "@/components/layout/NavMenu";
 import { cn } from "@/lib/cn";
 import { mainNav } from "@/lib/navigation";
+import { trMainNav } from "@/lib/i18n/tr-navigation";
+import { localeFromPathname, toggleLocalePath } from "@/lib/i18n/locale";
+import { t } from "@/lib/i18n/ui-strings";
 
 const FOCUS_RING =
   "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background";
@@ -18,6 +22,11 @@ export function Header() {
   const [isMobileNavOpen, setIsMobileNavOpen] = useState(false);
   const [openMobileSection, setOpenMobileSection] = useState<string | null>(null);
   const navRef = useRef<HTMLDivElement>(null);
+  const pathname = usePathname();
+  const locale = localeFromPathname(pathname);
+  const nav = locale === "tr" ? trMainNav : mainNav;
+  const strings = t(locale).header;
+  const requestDemoHref = locale === "tr" ? "/tr/request-demo" : "/request-demo";
 
   useEffect(() => {
     if (!openMenu) return;
@@ -45,7 +54,7 @@ export function Header() {
         <Logo />
 
         <nav ref={navRef} className="hidden items-center gap-7 xl:flex">
-          {mainNav.map((item) => (
+          {nav.map((item) => (
             <NavMenu
               key={item.label}
               item={item}
@@ -54,13 +63,24 @@ export function Header() {
                 setOpenMenu((current) => (current === item.label ? null : item.label))
               }
               onClose={() => setOpenMenu(null)}
+              locale={locale}
             />
           ))}
         </nav>
 
-        <div className="hidden xl:flex">
-          <Button href="/request-demo" variant="primary" size="sm">
-            Request Demo
+        <div className="hidden items-center gap-4 xl:flex">
+          <Link
+            href={toggleLocalePath(pathname ?? "/")}
+            className={cn(
+              "rounded-sm text-sm font-medium text-muted-foreground transition-colors hover:text-foreground",
+              FOCUS_RING
+            )}
+            aria-label={locale === "tr" ? "Switch to English" : "Türkçeye geç"}
+          >
+            {locale === "tr" ? "EN" : "TR"}
+          </Link>
+          <Button href={requestDemoHref} variant="primary" size="sm">
+            {strings.requestDemo}
           </Button>
         </div>
 
@@ -68,7 +88,7 @@ export function Header() {
           type="button"
           onClick={() => setIsMobileNavOpen((open) => !open)}
           aria-expanded={isMobileNavOpen}
-          aria-label="Toggle navigation menu"
+          aria-label={strings.toggleNav}
           className={cn(
             "inline-flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-md text-foreground xl:hidden",
             FOCUS_RING
@@ -85,7 +105,17 @@ export function Header() {
       {isMobileNavOpen && (
         <div className="max-h-[calc(100vh-4rem)] overflow-y-auto border-t border-border bg-background xl:hidden">
           <Container className="flex flex-col gap-1 py-4">
-            {mainNav.map((item) => {
+            <Link
+              href={toggleLocalePath(pathname ?? "/")}
+              onClick={() => setIsMobileNavOpen(false)}
+              className={cn(
+                "self-start rounded-md px-2 py-2 text-sm font-semibold text-primary",
+                FOCUS_RING
+              )}
+            >
+              {locale === "tr" ? "English" : "Türkçe"}
+            </Link>
+            {nav.map((item) => {
               if (!item.columns) {
                 return (
                   <Link
@@ -159,8 +189,8 @@ export function Header() {
             })}
 
             <div className="mt-3 px-2">
-              <Button href="/request-demo" variant="primary" size="md" className="w-full">
-                Request Demo
+              <Button href={requestDemoHref} variant="primary" size="md" className="w-full">
+                {strings.requestDemo}
               </Button>
             </div>
           </Container>

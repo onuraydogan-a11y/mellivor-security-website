@@ -7,7 +7,10 @@ import { SectionHeading } from "@/components/ui/SectionHeading";
 import { Button } from "@/components/ui/Button";
 import { Reveal } from "@/components/ui/Reveal";
 import { mainNav } from "@/lib/navigation";
+import { trMainNav } from "@/lib/i18n/tr-navigation";
 import { cn } from "@/lib/cn";
+import { t } from "@/lib/i18n/ui-strings";
+import type { Locale } from "@/lib/i18n/locale";
 
 const PRODUCT_ICONS: Record<string, LucideIcon> = {
   "Mellivor One": LayoutGrid,
@@ -28,11 +31,17 @@ const PRODUCT_LOGOS: Record<string, string> = {
  * and lists the rest alongside it, so the page has more than one
  * visual rhythm.
  */
-export function PlatformOverview() {
-  const platform = mainNav.find((item) => item.label === "Platform");
-  const products = platform?.columns?.find((c) => c.heading === "Products")?.links ?? [];
+export function PlatformOverview({ locale = "en" }: { locale?: Locale }) {
+  const strings = t(locale).platformOverview;
+  const nav = locale === "tr" ? trMainNav : mainNav;
+  const platformLabel = locale === "tr" ? "Platform" : "Platform";
+  const platform = nav.find((item) => item.label === platformLabel);
+  const productsHeading = locale === "tr" ? "Ürünler" : "Products";
+  const essentialsHeading = locale === "tr" ? "Platform Bileşenleri" : "Platform Essentials";
+  const products = platform?.columns?.find((c) => c.heading === productsHeading)?.links ?? [];
   const essentials =
-    platform?.columns?.find((c) => c.heading === "Platform Essentials")?.links ?? [];
+    platform?.columns?.find((c) => c.heading === essentialsHeading)?.links ?? [];
+  const platformHref = locale === "tr" ? "/tr/platform" : "/platform";
 
   const [featured, ...rest] = products;
   const FeaturedIcon = featured ? PRODUCT_ICONS[featured.label] : undefined;
@@ -44,9 +53,9 @@ export function PlatformOverview() {
         <div className="grid gap-10 lg:grid-cols-[0.85fr_1.15fr] lg:items-start">
           <Reveal>
             <SectionHeading
-              eyebrow="Platform"
-              title="The Mellivor technology ecosystem"
-              description="One proprietary platform, built to run as a unified whole rather than a collection of point products."
+              eyebrow={strings.eyebrow}
+              title={strings.title}
+              description={strings.description}
               align="left"
             />
 
@@ -63,8 +72,8 @@ export function PlatformOverview() {
             </div>
 
             <div className="mt-8">
-              <Button href="/platform" variant="outline" size="md">
-                Explore the platform
+              <Button href={platformHref} variant="outline" size="md">
+                {strings.explorePlatform}
               </Button>
             </div>
           </Reveal>

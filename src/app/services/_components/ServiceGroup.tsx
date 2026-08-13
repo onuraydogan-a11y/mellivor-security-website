@@ -6,6 +6,8 @@ import { BulletList } from "@/components/ui/BulletList";
 import { Reveal } from "@/components/ui/Reveal";
 import type { NavLink } from "@/lib/navigation";
 import { SERVICE_CAPABILITIES } from "../_content";
+import { TR_SERVICE_CAPABILITIES } from "@/lib/i18n/tr-services-content";
+import type { Locale } from "@/lib/i18n/locale";
 
 type ServiceGroupProps = {
   eyebrow: string;
@@ -14,6 +16,7 @@ type ServiceGroupProps = {
   links: NavLink[];
   icons: Record<string, LucideIcon>;
   className?: string;
+  locale?: Locale;
 };
 
 export function ServiceGroup({
@@ -23,7 +26,9 @@ export function ServiceGroup({
   links,
   icons,
   className,
+  locale = "en",
 }: ServiceGroupProps) {
+  const capabilitiesMap = locale === "tr" ? TR_SERVICE_CAPABILITIES : SERVICE_CAPABILITIES;
   return (
     <Section className={className}>
       <Container>
@@ -35,7 +40,7 @@ export function ServiceGroup({
           <div className="mt-14 grid gap-6 sm:grid-cols-2">
             {links.map((link) => {
               const Icon = icons[link.label];
-              const capabilities = SERVICE_CAPABILITIES[link.label];
+              const capabilities = capabilitiesMap[link.label];
 
               return (
                 <div key={link.href} className="rounded-2xl border border-border bg-surface p-7 shadow-sm">

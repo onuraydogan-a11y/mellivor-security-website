@@ -1,10 +1,20 @@
+"use client";
+
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { Container } from "@/components/ui/Container";
 import { Logo } from "@/components/ui/Logo";
 import { footerNav } from "@/lib/navigation";
+import { trFooterNav } from "@/lib/i18n/tr-navigation";
+import { localeFromPathname } from "@/lib/i18n/locale";
+import { t } from "@/lib/i18n/ui-strings";
 
 export function Footer() {
   const year = new Date().getFullYear();
+  const pathname = usePathname();
+  const locale = localeFromPathname(pathname);
+  const nav = locale === "tr" ? trFooterNav : footerNav;
+  const strings = t(locale).footer;
 
   return (
     <footer className="border-t border-border bg-surface">
@@ -12,14 +22,12 @@ export function Footer() {
         <div className="max-w-sm">
           <Logo />
           <p className="mt-4 text-sm leading-6 text-muted-foreground">
-            Mellivor Security helps enterprises detect, respond to, and get
-            ahead of the risks that matter — through a proprietary platform,
-            a technology ecosystem, and the people behind both.
+            {strings.tagline}
           </p>
         </div>
 
         <div className="mt-14 grid grid-cols-2 gap-x-8 gap-y-10 sm:grid-cols-3 lg:grid-cols-6">
-          {footerNav.map((column) => (
+          {nav.map((column) => (
             <div key={column.title}>
               <h3 className="text-xs font-semibold uppercase tracking-wide text-muted-foreground">
                 {column.title}
@@ -42,7 +50,7 @@ export function Footer() {
 
         <div className="mt-14 flex flex-col-reverse items-center gap-4 border-t border-border pt-8 sm:flex-row sm:justify-between">
           <p className="text-sm text-muted-foreground">
-            &copy; {year} Mellivor Security. All rights reserved.
+            &copy; {year} Mellivor Security. {strings.rights}
           </p>
         </div>
       </Container>
