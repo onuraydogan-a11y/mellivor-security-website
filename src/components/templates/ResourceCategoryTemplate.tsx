@@ -28,7 +28,7 @@ export function getResourceMetadata(label: string, locale: Locale = "en") {
   const link = resources?.columns?.[0]?.links.find((l) => l.label === label);
   const description =
     locale === "tr"
-      ? `Mellivor Security'den ${label.toLowerCase()} — araştırma, rehberlik ve kanıtlanmış sonuçlar.`
+      ? `Mellivor Security'den ${label.toLocaleLowerCase("tr")} — araştırma, rehberlik ve kanıtlanmış sonuçlar.`
       : `${label} from Mellivor Security — research, guidance, and proof it works.`;
   return buildMetadata({
     title: label,

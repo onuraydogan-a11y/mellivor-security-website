@@ -15,6 +15,9 @@ import { solutionContent, type SolutionPageContent } from "@/lib/solutions-conte
 import { buildMetadata } from "@/lib/seo";
 import { t } from "@/lib/i18n/ui-strings";
 import type { Locale } from "@/lib/i18n/locale";
+import { trMainNav } from "@/lib/i18n/tr-navigation";
+import { trTechnologyCategories } from "@/lib/i18n/tr-technology-partners";
+import { TR_FEATURED_RESOURCE_LABELS, TR_RESOURCE_ICONS } from "@/lib/i18n/tr-site-content";
 
 /** Metadata for a solution page, generated from its existing solutionContent entry. */
 export function getSolutionMetadata(slug: string) {
@@ -47,9 +50,15 @@ export function SolutionTemplate({
   resourcesHref = "/resources",
 }: SolutionTemplateProps) {
   const strings = t(locale).solutionTemplate;
-  const resources = mainNav.find((item) => item.label === "Resources");
+  const isTr = locale === "tr";
+  const categories = isTr ? trTechnologyCategories : technologyCategories;
+  const featuredLabels = isTr ? TR_FEATURED_RESOURCE_LABELS : FEATURED_RESOURCE_LABELS;
+  const resourceIcons = isTr ? TR_RESOURCE_ICONS : RESOURCE_ICONS;
+  const resources = (isTr ? trMainNav : mainNav).find(
+    (item) => item.label === (isTr ? "Kaynaklar" : "Resources")
+  );
   const resourceLinks = resources?.columns?.[0]?.links ?? [];
-  const featuredResources = FEATURED_RESOURCE_LABELS.map((label) =>
+  const featuredResources = featuredLabels.map((label) =>
     resourceLinks.find((l) => l.label === label)
   ).filter((link): link is NonNullable<typeof link> => Boolean(link));
 
@@ -125,7 +134,7 @@ export function SolutionTemplate({
           </Reveal>
           <Reveal delay={100}>
             <div className="mt-14 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
-              {technologyCategories.map((category) => (
+              {categories.map((category) => (
                 <Card
                   key={category.name}
                   icon={category.icon}
@@ -150,9 +159,9 @@ export function SolutionTemplate({
               {featuredResources.map((link) => (
                 <Card
                   key={link.href}
-                  icon={RESOURCE_ICONS[link.label]}
+                  icon={resourceIcons[link.label]}
                   title={link.label}
-                  href={locale === "tr" ? `/tr${link.href}` : link.href}
+                  href={link.href}
                 />
               ))}
             </div>

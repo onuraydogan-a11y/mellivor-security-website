@@ -46,7 +46,7 @@ export const TR_SERVICE_CAPABILITIES: Record<string, string[]> = {
     "Olay sonrası raporlama ve çıkarılan dersler",
   ],
   "Teknik Hesap Yönetimi": [
-    "Hesabınız için adı belirli bir irtibat noktası",
+    "Hesabınız için atanmış bir teknik irtibat noktası",
     "Düzenli platform sağlığı ve yol haritası incelemeleri",
     "Mellivor ekipleri arasında eskalasyon sahipliği",
   ],

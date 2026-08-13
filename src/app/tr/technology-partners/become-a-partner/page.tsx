@@ -36,7 +36,7 @@ const BENEFITS = [
   {
     icon: Wrench,
     title: "Özel teknik destek",
-    description: "Entegrasyon boyunca ve sonrasında Mellivor tarafında adı belirli bir irtibat noktası.",
+    description: "Entegrasyon boyunca ve sonrasında Mellivor tarafında atanmış bir teknik irtibat noktası.",
   },
 ];
 

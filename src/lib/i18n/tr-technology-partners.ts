@@ -20,9 +20,9 @@ export const trTechnologyCategories: TechnologyCategory[] = [
         name: "Nanitor",
         logo: "/partners/nanitor.png",
         summary:
-          "Varlık keşfi, güvenlik açığı, yapılandırma ve yama yönetimi için Sürekli Tehdit Maruziyet Yönetimi (CTEM) platformu.",
+          "Varlık keşfi, güvenlik açığı, yapılandırma ve yama yönetimi için Sürekli Tehdit Maruziyeti Yönetimi (CTEM) platformu.",
         overview: [
-          "Nanitor, kurumlara şirket içi ve bulut altyapısında varlık odaklı görünürlük sağlayan, İzlanda merkezli bir Sürekli Tehdit Maruziyet Yönetimi (CTEM) platformudur.",
+          "Nanitor, kurumlara şirket içi ve bulut altyapısında varlık odaklı görünürlük sağlayan, İzlanda merkezli bir Sürekli Tehdit Maruziyeti Yönetimi (CTEM) platformudur.",
           "Platform, Güvenlik Yapılandırması, Güvenlik Açığı Yönetimi ve Yama Yönetimi olmak üzere üç temel bileşen üzerine kuruludur ve uyumluluk çerçevelerine ve sektör en iyi uygulamalarına göre sorunları ortaya çıkarmak için BT varlıklarını otomatik olarak keşfeder.",
         ],
         portfolio: [
@@ -151,7 +151,7 @@ export const trTechnologyCategories: TechnologyCategory[] = [
           "Points (taklit sunucu tuzakları)",
           "APT'ler ve yanal hareket için erken tespit",
         ],
-        supportedSolutions: ["Aldatma (Deception) Teknolojisi"],
+        supportedSolutions: ["Deception (Aldatma Teknolojisi)"],
         integrations: [
           "Labyrinth'in aldatma platformunu, Behind24 ile birlikte Mellivor'un Tespit ve Müdahale teknoloji kategorisine ekler.",
         ],
@@ -338,7 +338,7 @@ export const trTechnologyCategories: TechnologyCategory[] = [
   },
   {
     icon: Ghost,
-    name: "Aldatma (Deception)",
+    name: "Deception (Aldatma Teknolojisi)",
     description: "Saldırganları imzalar yerine tuzaklarla tespit eden siber aldatma platformları.",
     vendors: [
       {
@@ -357,14 +357,39 @@ export const trTechnologyCategories: TechnologyCategory[] = [
           "ShadowPlex Targeted Threat Intel",
           "SIEM entegrasyonu",
         ],
-        supportedSolutions: ["Aldatma (Deception) Teknolojisi"],
+        supportedSolutions: ["Deception (Aldatma Teknolojisi)"],
         integrations: [
-          "Acalvio'nun aldatma platformunu Mellivor'un Aldatma (Deception) teknoloji kategorisine ekler.",
+          "Acalvio'nun aldatma platformunu Mellivor'un Deception (Aldatma Teknolojisi) kategorisine ekler.",
         ],
       },
     ],
   },
 ];
+
+/**
+ * Turkish genitive suffix for each vendor name, keyed by the vendor's
+ * exact `name` string. Turkish vowel harmony on loanwords follows
+ * pronunciation, not spelling, so this can't be derived from the name
+ * algorithmically — it's a lookup rather than a rule. Used wherever a
+ * vendor name needs a possessive/genitive suffix (e.g. "Nanitor'un",
+ * not the vowel-harmony-incorrect "Nanitor'in").
+ */
+export const trVendorPossessiveSuffix: Record<string, string> = {
+  Nanitor: "'un",
+  "Aikido Security": "'nin",
+  TransferChain: "'in",
+  Securden: "'in",
+  Gatewatcher: "'ın",
+  Labyrinth: "'in",
+  Cybereason: "'ın",
+  Soteryan: "'ın",
+  "SURF Security": "'nin",
+  CyberServal: "'ın",
+  Metalore: "'un",
+  Wallarm: "'ın",
+  Outpost24: "'ün",
+  Acalvio: "'nun",
+};
 
 export function getTrVendorBySlug(
   slug: string

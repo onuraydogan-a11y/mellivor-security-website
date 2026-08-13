@@ -13,6 +13,7 @@ import { cn } from "@/lib/cn";
 import { t } from "@/lib/i18n/ui-strings";
 import type { Locale } from "@/lib/i18n/locale";
 import type { PartnerVendor, TechnologyCategory } from "@/lib/technology-partners";
+import { trVendorPossessiveSuffix } from "@/lib/i18n/tr-technology-partners";
 
 type VendorTemplateProps = {
   vendor: PartnerVendor;
@@ -32,6 +33,8 @@ export function VendorTemplate({ vendor, category, locale = "en", requestDemoHre
   const platformHref = locale === "tr" ? "/tr/platform" : "/platform";
   const solutionsHref = locale === "tr" ? "/tr/solutions/ai-security" : "/solutions/ai-security";
   const techPartnersHref = locale === "tr" ? "/tr/technology-partners" : "/technology-partners";
+  const finalCtaVendorName =
+    locale === "tr" ? `${vendor.name}${trVendorPossessiveSuffix[vendor.name] ?? "'ın"}` : vendor.name;
 
   return (
     <>
@@ -143,7 +146,7 @@ export function VendorTemplate({ vendor, category, locale = "en", requestDemoHre
       />
 
       <FinalCta
-        title={strings.finalCtaTitle(vendor.name)}
+        title={strings.finalCtaTitle(finalCtaVendorName)}
         description={strings.finalCtaDescription}
         ctaLabel={t(locale).header.requestDemo}
         ctaHref={requestDemoHref}

@@ -191,7 +191,7 @@ export const uiStrings = {
       resourcesEyebrow: "İlgili Kaynaklar",
       resourcesTitle: "Daha fazla bilgi",
       viewAllResources: "Tüm kaynakları görüntüle",
-      finalCtaTitle: (title: string) => `${title} uygulamada nasıl çalışır?`,
+      finalCtaTitle: (title: string) => `${title} nasıl çalışır?`,
       finalCtaDescription: "Bu çözüme ve ortamınıza özel bir demo talep edin.",
     },
     serviceTemplate: {
@@ -213,7 +213,7 @@ export const uiStrings = {
       relatedAllServices: { title: "Tüm Hizmetler", description: "Mellivor'un platformu, onu sizinle birlikte tasarlayan, devreye alan ve işleten ekipler tarafından destekleniyor." },
       relatedPlatform: { title: "Platform", description: "Gerçekte ne devreye alacağınızı görün." },
       relatedTechPartners: { title: "Teknoloji Ortakları", description: "Mellivor'un entegre olduğu ekosistem." },
-      finalCtaTitle: (label: string) => `${label} uygulamada nasıl çalışır?`,
+      finalCtaTitle: (label: string) => `${label} nasıl çalışır?`,
       finalCtaDescription: "Bu hizmete ve ortamınıza özel bir demo talep edin.",
     },
     vendorTemplate: {
@@ -229,7 +229,11 @@ export const uiStrings = {
       relatedPlatform: { title: "Platform", description: "Bu teknolojinin Mellivor platformunda nereye oturduğunu görün." },
       relatedSolutions: { title: "Çözümler", description: "Bu teknolojinin çözümüne yardımcı olduğu iş sorunları." },
       relatedTechPartners: { title: "Teknoloji Ortakları", description: "Teknoloji ekosisteminin diğer kısmı." },
-      finalCtaTitle: (name: string) => `${name}'in Mellivor içinde çalışmasını görün`,
+      // Expects `name` to already include its correct Turkish possessive
+      // suffix (e.g. "Nanitor'un") — see trVendorPossessiveSuffix in
+      // tr-technology-partners.ts. Vowel harmony varies per vendor name,
+      // so the suffix can't be appended generically here.
+      finalCtaTitle: (name: string) => `${name} Mellivor içinde çalışmasını görün`,
       finalCtaDescription: "Bu teknolojiye ve ortamınıza özel bir demo talep edin.",
     },
     techCategoryTemplate: {
@@ -250,7 +254,7 @@ export const uiStrings = {
     },
     resourceCategoryTemplate: {
       eyebrow: "Kaynaklar",
-      emptyTitle: (label: string) => `Henüz ${label.toLowerCase()} yayınlanmadı`,
+      emptyTitle: (label: string) => `Henüz ${label.toLocaleLowerCase("tr")} yayınlanmadı`,
       emptyDescription: (label: string) => `${label}, Mellivor tarafından yayınlandıkça burada yer alacak. Bu arada diğer kaynak kategorilerine göz atabilir veya doğrudan ekibimizle görüşebilirsiniz.`,
       requestDemo: "Demo Talep Edin",
       relatedTitle: "Mellivor'u daha yakından tanıyın",

@@ -63,7 +63,7 @@ export const trMainNav: NavItem[] = [
           { label: "Güvenlik Açığı Yönetimi", href: "/tr/solutions/vulnerability-management" },
           { label: "Dijital Risk Koruması", href: "/tr/solutions/digital-risk-protection" },
           { label: "Marka Koruması", href: "/tr/solutions/brand-protection" },
-          { label: "Aldatma (Deception) Teknolojisi", href: "/tr/solutions/deception-technology" },
+          { label: "Deception (Aldatma Teknolojisi)", href: "/tr/solutions/deception-technology" },
         ],
       },
       {

@@ -144,7 +144,7 @@ export const trSolutionContent: Record<string, SolutionPageContent> = {
     title: "Maruziyet Yönetimi (CTEM)",
     summary: "En önemli maruziyetleri bulmak, önceliklendirmek ve kapatmak için sürekli bir program.",
     overview: [
-      "Sürekli Tehdit Maruziyet Yönetimi, güvenliği periyodik, belirli bir ana ait değerlendirmelerden; kapsam belirleme, keşif, önceliklendirme, doğrulama ve harekete geçirmeden oluşan sürekli bir döngüye kaydırır — ortamların gerçekte ne kadar hızlı değiştiğine uyacak şekilde.",
+      "Sürekli Tehdit Maruziyeti Yönetimi, güvenliği periyodik, belirli bir ana ait değerlendirmelerden; kapsam belirleme, keşif, önceliklendirme, doğrulama ve harekete geçirmeden oluşan sürekli bir döngüye kaydırır — ortamların gerçekte ne kadar hızlı değiştiğine uyacak şekilde.",
       "Mellivor'un CTEM programı; varlık keşfini, güvenlik açığı verisini ve tehdit istihbaratını, asla tam olarak örtüşmeyen üç ayrı rapor yerine tek bir önceliklendirilmiş maruziyet görünümünde birleştirir.",
     ],
     whyItMatters: [
@@ -245,7 +245,7 @@ export const trSolutionContent: Record<string, SolutionPageContent> = {
 
   "deception-technology": {
     eyebrow: "Tehdit ve Maruziyet",
-    title: "Aldatma (Deception) Teknolojisi",
+    title: "Deception (Aldatma Teknolojisi)",
     summary: "Bir saldırganın tuzakla herhangi bir etkileşimini yüksek güvenilirlikli bir uyarıya dönüştürün.",
     overview: [
       "Geleneksel tespit, bir saldırganın bir kuralı tetiklemesini bekler. Aldatma teknolojisi, saldırganlara dokunmak için meşru bir nedeni olmayan bir şey sunar — herhangi bir etkileşimi yüksek güvenilirlikli bir uyarıya dönüştürür.",
@@ -274,7 +274,7 @@ export const trSolutionContent: Record<string, SolutionPageContent> = {
     title: "MDR",
     summary: "Sıfırdan bir SOC kurmadan, Behind24 aracılığıyla sunulan 7/24 tespit ve müdahale.",
     overview: [
-      "Yönetilen Tespit ve Müdahale, modern bir güvenlik programının en zor ve en pahalı kısımlarından birini — bir SOC'yi kurmadan, personel almadan ve elde tutmadan — 7/24 SOC size sağlar.",
+      "Yönetilen Tespit ve Müdahale, modern bir güvenlik programının en zor ve en pahalı kısımlarından birini — bir SOC'yi kurmadan, personel almadan ve elde tutmadan — 7/24 SOC hizmeti sunar.",
       "Behind24 aracılığıyla sunulan Mellivor MDR, sürekli izlemeyi yalnızca uyarıları ekibinize iletmekle kalmayıp gerçekten müdahale eden analistlerle birleştirir.",
     ],
     whyItMatters: [
