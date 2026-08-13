@@ -170,7 +170,7 @@ export const uiStrings = {
     },
     footer: {
       tagline:
-        "Mellivor Security, kurumların önemli riskleri tespit etmesine, bunlara yanıt vermesine ve bu risklerin önüne geçmesine yardımcı olur — özel bir platform, bir teknoloji ekosistemi ve bunların arkasındaki ekip sayesinde.",
+        "Mellivor Security, kurumların siber riskleri tespit etmesine, bunlara yanıt vermesine ve riskleri yönetmesine yardımcı olur — tek bir platform, güçlü bir teknoloji ekosistemi ve uzman ekiplerle.",
       rights: "Tüm hakları saklıdır.",
     },
     relatedContent: {
